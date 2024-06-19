@@ -1,11 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
-</head>
-<body id="body">
-    
-</body>
+  </head>
+  <body id="body">
+    <div class="container" data-container="">
+      <header class="header" data-header="">
+        <div class="profile-area" data-profile-area="">
+          <div class="profile-picture" data-profile-picture="">PIC</div>
+          <div class="profile-names" data-profile-names="">
+            <h2 class="profile-username">Username</h2>
+            <h3 class="profile-id" data-profile-id="">@username</h3>
+          </div>
+        </div>
+        <div class="app-name-area" data-app-name-area="">
+          <h1 class="app-name" data-app-name="">#Todo List</h1>
+        </div>
+        <div class="screen-info" data-screen-info="">
+          <button class="menu-button" data-menu-button="">
+            Home/Task List <i>ICON</i>
+          </button>
+        </div>
+      </header>
+      <nav class="nav" data-nav="">
+        <div class="filter-area" data-filter-area="">
+          <button class="filters-button" data-filters-button="">
+            #Filters <i>ICON</i>
+          </button>
+          <div class="filters" data-filters="">
+            <div class="all-tasks" data-all-tasks="">
+              <button class="all-tasks-button" data-all-tasks-button="">
+                #All tasks
+              </button>
+              <span><h4>1</h4></span>
+            </div>
+            <div class="today" data-today="">
+              <button class="today-button" data-today-button="">#Today</button>
+              <span><h4>2</h4></span>
+            </div>
+            <div class="tomorrow" data-tomorrow="">
+              <button class="tomorrow-button" data-tomorrow-button="">#Tomorrow</button>
+              <span><h4>3</h4></span>
+            </div>
+            <div class="this-week" data-this-week="">
+              <button class="week-button" data-week-button="">#This week</button>
+              <span><h4>4</h4></span>
+            </div>
+            <div class="this-month" data-this-month="">
+              <button class="month-button" data-month-button="">#Today</button>
+              <span><h4>5</h4></span>
+            </div>
+          </div>
+        </div>
+        <div class="project-area" data-project-area="">
+          <button class="projects-button" data-projects-button="">
+            #Projects <i>ICON</i>
+          </button>
+          <div class="projects" data-projects="">
+            <ol class="projects-list" data-projects-list="">
+              <li class="project-list-item" data-project-list-item="">
+                <button>Dummy Project</button>
+                <span><h4>8</h4></span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      <div class="content-area" data-content-area="">
+        <div class="task-area" data-task-area="">
+          <ul class="task-list" data-task-list="">
+            <li class="task-list-item" data-task-list-item="" data-task-id="1">
+              <div class="task-header" data-task-header="">
+                <div class="task-field" data-task-field="">
+                  <i class="check-box" data-check-box="">CBOX</i>
+                  <h2 class="task-text" data-task-text=""></h2>
+                </div>
+                <div class="task-box-buttons" data-task-box-buttons="">
+                  <button class="task-expand-button" data-task-expand-button="">
+                    <i>ICON</i>
+                  </button>
+                  <div class="edit" data-edit="">
+                    <button class="edit-button">Edit <i>ICON</i></button>
+                  </div>
+                  <div class="delete" data-delete="">
+                    <button class="delete-button" data-delete-button="">
+                      Delete <i>ICON</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="task-info-area" data-task-info-area="">
+                <div class="task-note-area" data-task-note-area="">
+                  <h2 class="note-header" data-note-header="">Note</h2>
+                  <p class="note-paragraph" data-note-paragraph="">task description...</p>
+                </div>
+                <div class="task-extra-info" data-task-extra-info="">
+                  <div class="project-info" data-project-info="">
+                    <h3 class="project-header" data-project-header="">Project</h3>
+                    <p class="project-paragraph" data-project-paragraph="">
+                      Project name
+                    </p>
+                  </div>
+                  <div class="due-date-info" data-due-date-info="">
+                    <h3 class="due-date-header" data-due-date-header="">Due Date:</h3>
+                    <p class="due-date-paragraph">11.01.11</p>
+                  </div>
+                  <div class="priority-info" data-priority-info="">
+                    <h3 class="priority-header" data-priority-header="">Priority:</h3>
+                    <div class="priority-boxes" data-priority-boxes="">
+                      <button class="low-priority-button" data-low-priority-button="">
+                        LOW
+                      </button>
+                      <button class="med-priority-button" data-med-priority-button="">
+                        MED
+                      </button>
+                      <button class="high-priority-button" data-high-priority-button="">
+                        HIGH
+                      </button>
+                    </div>
+                    <div class="color-info" data-color-info="">
+                      <h3 class="color-info-header" data-color-info-header="">Color:</h3>
+                      <i class="color-info-display" data-color-info-display=""
+                        >Color display</i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <button class="new-task-button" data-new-task-button="">+</button>
+      </div>
+    </div>
+    <dialog class="modal" data-modal="" type="modal">
+      <div class="modal-content" data-modal-content="">
+        <form action="" id="task-form" class="new-task-form" data-new-task-form="">
+          <div class="new-task-area" data-new-task-area="">
+            <label for="new-task" class="new-task-label" data-new-task-label="" required
+              >New Task</label
+            >
+            <input
+              id="new-task"
+              type="text"
+              class="new-task-input"
+              data-new-task-input=""
+            />
+          </div>
+          <div class="new-project-area" data-new-project-area="">
+            <label for="new-project" class="new-project-label" data-new-project-label=""
+              >Project</label
+            >
+            <input
+              id="new-project"
+              type="text"
+              class="new-project-input"
+              data-new-project-input=""
+              value="My Project"
+            />
+          </div>
+          <div class="new-note-area" data-new-note-area="">
+            <label for="new-note" class="new-note-label" data-new-note-label=""
+              >Note</label
+            >
+            <input
+              name="new-note"
+              type="text"
+              class="new-note-input"
+              data-new-note-input=""
+              value="Task description..."
+            />
+          </div>
+          <div class="new-color-area" data-new-color-area="">
+            <label for="new-color" class="new-color-label" data-new-color-label=""
+              >Color:
+            </label>
+            <input
+              name="new-color"
+              type="color"
+              class="new-color-input"
+              data-new-color-input=""
+            />
+          </div>
+          <div class="new-date-area" data-new-date-area="">
+            <label for="new-date" class="new-color-label" data-new-date-label=""
+              >Due Date:</label
+            >
+            <input
+              name="new-date"
+              type="date"
+              class="new-date-input"
+              data-new-date-input=""
+            />
+          </div>
+          <div class="new-priority-area" data-new-priority-area="">
+            <label for="priority" class="new-priority-label" data-new-date-label=""
+              >Priority:
+            </label>
+            <input
+              name="priority"
+              type="radio"
+              class="new-priority-input-low"
+              data-new-priority-input-low=""
+              value="low"
+              checked
+            />
+            <input
+              name="priority"
+              type="radio"
+              class="new-priority-input-med"
+              data-new-priority-input-med=""
+              value="med"
+            />
+            <input
+              name="priority"
+              type="radio"
+              class="new-priority-input-high"
+              data-new-priority-input-high=""
+              value="high"
+            />
+          </div>
+        </form>
+        <div class="new-task-submit-area" data-new-task-submit-area="">
+          <button class="new-task-cancel" data-new-task-cancel="">Cancel</button>
+          <button
+            type="submit"
+            form="task-form"
+            class="new-task-create"
+            data-new-task-create=""
+          >
+            Create Task
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <footer class="footer" data-footer="">
+      <div class="footer-info-left" data-footer-info-left=""></div>
+      <div class="footer-info-right" data-footer-info-right=""></div>
+    </footer>
+  </body>
 </html>
