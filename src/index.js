@@ -1,5 +1,6 @@
 //IMPORTS
 import "../src/assets/styles/style.css";
+import Task from "./Task.js";
 ////////////////////////////////////////////
 
 //GET ELEMENTS
@@ -18,3 +19,4 @@ const newTaskSubmitArea = document.querySelector("[data-new-task-submit-area]");
 const taskList = [];
 const projectList = [];
 ////////////////////////
+
