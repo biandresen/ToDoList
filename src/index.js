@@ -14,9 +14,13 @@ const monthButton = document.querySelector("[data-month-button]");
 const projectsButton = document.querySelector("[data-projects-button]");
 const newTaskButton = document.querySelector("[data-new-task-button]");
 const newTaskSubmitArea = document.querySelector("[data-new-task-submit-area]");
+const modal = document.querySelector("[data-modal]");
 /////////////////////////////////////////////////////////////////////////////////////////
 //DECLARE LISTS
 const taskList = [];
 const projectList = [];
 ////////////////////////
-
+//DECLARE EVENT LISTENERS
+newTaskButton.addEventListener("click", () => {
+  modal.showModal();
+});
