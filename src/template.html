@@ -17,8 +17,6 @@
         </div>
         <div class="app-name-area" data-app-name-area="">
           <h1 class="app-name" data-app-name="">#Todo List</h1>
-        </div>
-        <div class="screen-info" data-screen-info="">
           <button class="menu-button" data-menu-button="">
             Home/Task List <i>ICON</i>
           </button>
@@ -34,23 +32,23 @@
               <button class="all-tasks-button" data-all-tasks-button="">
                 #All tasks
               </button>
-              <span><h4>1</h4></span>
+              <span><h4 class="all-tasks-number" data-all-tasks-number="">1</h4></span>
             </div>
             <div class="today" data-today="">
               <button class="today-button" data-today-button="">#Today</button>
-              <span><h4>2</h4></span>
+              <span><h4 class="today-number" data-today-number="">2</h4></span>
             </div>
             <div class="tomorrow" data-tomorrow="">
               <button class="tomorrow-button" data-tomorrow-button="">#Tomorrow</button>
-              <span><h4>3</h4></span>
+              <span><h4 class="tomorrow-number" data-tomorrow-number="">3</h4></span>
             </div>
             <div class="this-week" data-this-week="">
               <button class="week-button" data-week-button="">#This week</button>
-              <span><h4>4</h4></span>
+              <span><h4 class="week-number" data-week-number="">4</h4></span>
             </div>
             <div class="this-month" data-this-month="">
               <button class="month-button" data-month-button="">#Today</button>
-              <span><h4>5</h4></span>
+              <span><h4 class="month-number" data-tomorrow-number="">5</h4></span>
             </div>
           </div>
         </div>
@@ -59,12 +57,14 @@
             #Projects <i>ICON</i>
           </button>
           <div class="projects" data-projects="">
-            <ol class="projects-list" data-projects-list="">
+            <ul class="projects-list" data-projects-list="">
               <li class="project-list-item" data-project-list-item="">
-                <button>Dummy Project</button>
-                <span><h4>8</h4></span>
+                <button class="project-list-item-button" data-project-list-item-button="">
+                  Dummy Project
+                </button>
+                <span><h4 class="project-1-number">8</h4></span>
               </li>
-            </ol>
+            </ul>
           </div>
         </div>
       </nav>
@@ -74,19 +74,25 @@
             <li class="task-list-item" data-task-list-item="" data-task-id="1">
               <div class="task-header" data-task-header="">
                 <div class="task-field" data-task-field="">
-                  <i class="check-box" data-check-box="">CBOX</i>
-                  <h2 class="task-text" data-task-text=""></h2>
+                  <i class="check-box" data-check-box="">O</i>
+                  <h2 class="task-text" data-task-text="">Task1</h2>
                 </div>
                 <div class="task-box-buttons" data-task-box-buttons="">
-                  <button class="task-expand-button" data-task-expand-button="">
-                    <i>ICON</i>
+                  <button
+                    class="task-expand-button task-expand-button"
+                    data-task-expand-button=""
+                  >
+                    <i>C</i>
                   </button>
                   <div class="edit" data-edit="">
-                    <button class="edit-button">Edit <i>ICON</i></button>
+                    <button class="edit-button task-expand-button">Edit <i>C</i></button>
                   </div>
                   <div class="delete" data-delete="">
-                    <button class="delete-button" data-delete-button="">
-                      Delete <i>ICON</i>
+                    <button
+                      class="delete-button task-expand-button"
+                      data-delete-button=""
+                    >
+                      Delete <i>C</i>
                     </button>
                   </div>
                 </div>
@@ -94,11 +100,11 @@
               <div class="task-info-area" data-task-info-area="">
                 <div class="task-note-area" data-task-note-area="">
                   <h2 class="note-header" data-note-header="">Note</h2>
-                  <p class="note-paragraph" data-note-paragraph="">task description...</p>
+                  <p class="note-paragraph" data-note-paragraph="">Task description...</p>
                 </div>
                 <div class="task-extra-info" data-task-extra-info="">
                   <div class="project-info" data-project-info="">
-                    <h3 class="project-header" data-project-header="">Project</h3>
+                    <h3 class="project-header" data-project-header="">Project:</h3>
                     <p class="project-paragraph" data-project-paragraph="">
                       Project name
                     </p>
@@ -110,21 +116,28 @@
                   <div class="priority-info" data-priority-info="">
                     <h3 class="priority-header" data-priority-header="">Priority:</h3>
                     <div class="priority-boxes" data-priority-boxes="">
-                      <button class="low-priority-button" data-low-priority-button="">
+                      <button
+                        class="low-priority-button priority-button"
+                        data-low-priority-button=""
+                      >
                         LOW
                       </button>
-                      <button class="med-priority-button" data-med-priority-button="">
+                      <button
+                        class="med-priority-button priority-button"
+                        data-med-priority-button=""
+                      >
                         MED
                       </button>
-                      <button class="high-priority-button" data-high-priority-button="">
+                      <button
+                        class="high-priority-button priority-button"
+                        data-high-priority-button=""
+                      >
                         HIGH
                       </button>
                     </div>
                     <div class="color-info" data-color-info="">
                       <h3 class="color-info-header" data-color-info-header="">Color:</h3>
-                      <i class="color-info-display" data-color-info-display=""
-                        >Color display</i
-                      >
+                      <i class="color-info-display" data-color-info-display="">C</i>
                     </div>
                   </div>
                 </div>
@@ -237,6 +250,7 @@
       </div>
     </dialog>
     <footer class="footer" data-footer="">
+      Hey
       <div class="footer-info-left" data-footer-info-left=""></div>
       <div class="footer-info-right" data-footer-info-right=""></div>
     </footer>
