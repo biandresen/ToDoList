@@ -100,7 +100,7 @@
               <div class="task-info-area" data-task-info-area="">
                 <div class="task-note-area" data-task-note-area="">
                   <h2 class="note-header" data-note-header="">Note</h2>
-                  <p class="note-paragraph" data-note-paragraph="">Task description...</p>
+                  <p class="note-paragraph" data-note-paragraph=""></p>
                 </div>
                 <div class="task-extra-info" data-task-extra-info="">
                   <div class="project-info" data-project-info="">
@@ -182,7 +182,17 @@
               type="text"
               class="new-note-input"
               data-new-note-input=""
-              value="Task description..."
+            />
+          </div>
+          <div class="new-date-area" data-new-date-area="">
+            <label for="new-date" class="new-date-label" data-new-date-label=""
+              >Due Date:</label
+            >
+            <input
+              name="new-date"
+              type="date"
+              class="new-date-input"
+              data-new-date-input=""
             />
           </div>
           <div class="new-color-area" data-new-color-area="">
@@ -196,56 +206,47 @@
               data-new-color-input=""
             />
           </div>
-          <div class="new-date-area" data-new-date-area="">
-            <label for="new-date" class="new-color-label" data-new-date-label=""
-              >Due Date:</label
-            >
-            <input
-              name="new-date"
-              type="date"
-              class="new-date-input"
-              data-new-date-input=""
-            />
-          </div>
           <div class="new-priority-area" data-new-priority-area="">
             <label for="priority" class="new-priority-label" data-new-date-label=""
               >Priority:
             </label>
-            <input
-              name="priority"
-              type="radio"
-              class="new-priority-input-low"
-              data-new-priority-input-low=""
-              value="low"
-              checked
-            />
-            <input
-              name="priority"
-              type="radio"
-              class="new-priority-input-med"
-              data-new-priority-input-med=""
-              value="med"
-            />
-            <input
-              name="priority"
-              type="radio"
-              class="new-priority-input-high"
-              data-new-priority-input-high=""
-              value="high"
-            />
+            <div class="priority-buttons">
+              <input
+                name="priority"
+                type="radio"
+                class="new-priority-input-low priority-input"
+                data-new-priority-input-low=""
+                value="low"
+                checked
+              />
+              <input
+                name="priority"
+                type="radio"
+                class="new-priority-input-med priority-input"
+                data-new-priority-input-med=""
+                value="med"
+              />
+              <input
+                name="priority"
+                type="radio"
+                class="new-priority-input-high priority-input"
+                data-new-priority-input-high=""
+                value="high"
+              />
+            </div>
+          </div>
+          <div class="new-task-submit-area" data-new-task-submit-area="">
+            <button class="new-task-cancel" data-new-task-cancel="">Cancel</button>
+            <button
+              type="submit"
+              form="task-form"
+              class="new-task-create"
+              data-new-task-create=""
+            >
+              Create Task
+            </button>
           </div>
         </form>
-        <div class="new-task-submit-area" data-new-task-submit-area="">
-          <button class="new-task-cancel" data-new-task-cancel="">Cancel</button>
-          <button
-            type="submit"
-            form="task-form"
-            class="new-task-create"
-            data-new-task-create=""
-          >
-            Create Task
-          </button>
-        </div>
       </div>
     </dialog>
     <footer class="footer" data-footer="">
