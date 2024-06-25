@@ -85,7 +85,7 @@
                     <i>C</i>
                   </button>
                   <div class="edit" data-edit="">
-                    <button class="edit-button task-expand-button">Edit <i>C</i></button>
+                    <button class="edit-button task-expand-button" data-edit-button="" data-edit-flag="true">Edit <i>C</i></button>
                   </div>
                   <div class="delete" data-delete="">
                     <button
@@ -150,101 +150,110 @@
     <dialog class="modal" data-modal="" type="modal">
       <div class="modal-content" data-modal-content="">
         <form action="" id="task-form" class="new-task-form" data-new-task-form="">
-          <div class="new-task-area" data-new-task-area="">
-            <label for="new-task" class="new-task-label" data-new-task-label="" required
-              >New Task</label
-            >
-            <input
-              id="new-task"
-              type="text"
-              class="new-task-input"
-              data-new-task-input=""
-            />
-          </div>
-          <div class="new-project-area" data-new-project-area="">
-            <label for="new-project" class="new-project-label" data-new-project-label=""
-              >Project</label
-            >
-            <input
-              id="new-project"
-              type="text"
-              class="new-project-input"
-              data-new-project-input=""
-              value="My Project"
-            />
-          </div>
-          <div class="new-note-area" data-new-note-area="">
-            <label for="new-note" class="new-note-label" data-new-note-label=""
-              >Note</label
-            >
-            <input
-              name="new-note"
-              type="text"
-              class="new-note-input"
-              data-new-note-input=""
-            />
-          </div>
-          <div class="new-date-area" data-new-date-area="">
-            <label for="new-date" class="new-date-label" data-new-date-label=""
-              >Due Date:</label
-            >
-            <input
-              name="new-date"
-              type="date"
-              class="new-date-input"
-              data-new-date-input=""
-            />
-          </div>
-          <div class="new-color-area" data-new-color-area="">
-            <label for="new-color" class="new-color-label" data-new-color-label=""
-              >Color:
-            </label>
-            <input
-              name="new-color"
-              type="color"
-              class="new-color-input"
-              data-new-color-input=""
-            />
-          </div>
-          <div class="new-priority-area" data-new-priority-area="">
-            <label for="priority" class="new-priority-label" data-new-date-label=""
-              >Priority:
-            </label>
-            <div class="priority-buttons">
+          <div class="form-left-side" data-form-left-side="">
+            <div class="new-task-area" data-new-task-area="">
+              <label for="new-task" class="new-task-label" data-new-task-label=""
+                >New Task</label
+              >
               <input
-                name="priority"
-                type="radio"
-                class="new-priority-input-low priority-input"
-                data-new-priority-input-low=""
-                value="low"
-                checked
+                id="new-task"
+                type="text"
+                class="new-task-input"
+                data-new-task-input=""
+                value=""
+                required
               />
+            </div>
+            <div class="new-note-area" data-new-note-area="">
+              <label for="new-note" class="new-note-label" data-new-note-label=""
+                >Note</label
+              >
               <input
-                name="priority"
-                type="radio"
-                class="new-priority-input-med priority-input"
-                data-new-priority-input-med=""
-                value="med"
-              />
-              <input
-                name="priority"
-                type="radio"
-                class="new-priority-input-high priority-input"
-                data-new-priority-input-high=""
-                value="high"
+                name="new-note"
+                type="text"
+                class="new-note-input"
+                data-new-note-input=""
+                value=""
+                placeholder="description..."
               />
             </div>
           </div>
-          <div class="new-task-submit-area" data-new-task-submit-area="">
-            <button class="new-task-cancel" data-new-task-cancel="">Cancel</button>
-            <button
-              type="submit"
-              form="task-form"
-              class="new-task-create"
-              data-new-task-create=""
-            >
-              Create Task
-            </button>
+          <div class="form-right-side" data-form-right-side="">
+            <div class="new-project-area" data-new-project-area="">
+              <label for="new-project" class="new-project-label" data-new-project-label=""
+                >Project</label
+              >
+              <input
+                id="new-project"
+                type="text"
+                class="new-project-input"
+                data-new-project-input=""
+                value="Project"
+              />
+            </div>
+            <div class="new-date-area" data-new-date-area="">
+              <label for="new-date" class="new-date-label" data-new-date-label=""
+                >Due Date:</label
+              >
+              <input
+                name="new-date"
+                type="date"
+                class="new-date-input"
+                data-new-date-input=""
+                value="yyyy-MM-dd "
+              />
+            </div>
+            <div class="new-color-area" data-new-color-area="">
+              <label for="new-color" class="new-color-label" data-new-color-label=""
+                >Color:
+              </label>
+              <input
+                name="new-color"
+                type="color"
+                class="new-color-input"
+                data-new-color-input=""
+              />
+            </div>
+            <div class="new-priority-area" data-new-priority-area="">
+              <label for="priority" class="new-priority-label" data-new-date-label=""
+                >Priority:
+              </label>
+              <div class="priority-buttons">
+                <input
+                  name="priority"
+                  type="radio"
+                  class="new-priority-input-low priority-input"
+                  data-new-priority-input-low=""
+                  value="low"
+                  checked
+                />
+                <input
+                  name="priority"
+                  type="radio"
+                  class="new-priority-input-med priority-input"
+                  data-new-priority-input-med=""
+                  value="med"
+                />
+                <input
+                  name="priority"
+                  type="radio"
+                  class="new-priority-input-high priority-input"
+                  data-new-priority-input-high=""
+                  value="high"
+                />
+              </div>
+            </div>
+            <div class="new-task-submit-area" data-new-task-submit-area="">
+              <button class="new-task-cancel" data-new-task-cancel="">Cancel</button>
+              <button
+                type="submit"
+                form="task-form"
+                class="new-task-create"
+                data-new-task-create=""
+              >
+                Create Task
+              </button>
+            </div>
           </div>
         </form>
       </div>

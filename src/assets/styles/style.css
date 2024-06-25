@@ -310,12 +310,12 @@ h4 {
   width: 86vw;
   height: 36vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 3.5fr;
+  overflow-y: hidden;
+  display: flex;
 }
-.new-task-area {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+.task-left-side {
+  display: flex;
+  flex-direction: column;
 }
 .new-task-label,
 .new-note-label,
@@ -338,25 +338,16 @@ h4 {
   font: var(--text-small);
   width: 145px;
   border-radius: 5px;
-  margin-top: 5px;
-}
-.new-project-area {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
+  margin: 5px 0 10px 0;
 }
 .new-note-area {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+  height: 100%;
 }
 .new-note-input {
   text-wrap: wrap;
-  height: 80%;
+  height: 65%;
 }
 .new-color-area {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  position: relative;
-  top: 57px;
 }
 .new-color-input {
   background: transparent;
@@ -364,15 +355,9 @@ h4 {
   width: 25px;
 }
 .new-date-area {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  position: relative;
 }
 .new-priority-area {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  position: relative;
-  top: 95px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -414,31 +399,25 @@ h4 {
   margin-left: 3px;
 }
 .new-task-submit-area {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  width: fit-content;
-  height: 10%;
-  align-self: end;
-  margin-bottom: 15px;
+  margin-top: 15px;
 }
 .new-task-cancel,
 .new-task-create {
+  cursor: pointer;
   background: transparent;
   border-color: transparent;
   color: var(--text-color);
   font: var(--text-body);
   font-weight: 800;
   text-decoration: underline;
-  cursor: pointer;
 }
 .footer {
   background: var(--secondary-color);
   grid-row: 3 / 4;
 }
-
 .nav {
-  /* display: none; */
+  display: none;
 }
 .content-area {
-  display: none;
+  /* display: none; */
 }
