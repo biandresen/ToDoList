@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body id="body">
     <div class="container" data-container="">
@@ -18,14 +25,14 @@
         <div class="app-name-area" data-app-name-area="">
           <h1 class="app-name" data-app-name="">#Todo List</h1>
           <button class="menu-button" data-menu-button="">
-            Home/Task List <i>ICON</i>
+            <i class="fa-solid fa-caret-down menu-expand"></i>
           </button>
         </div>
       </header>
       <nav class="nav" data-nav="">
         <div class="filter-area" data-filter-area="">
           <button class="filters-button" data-filters-button="">
-            #Filters <i>ICON</i>
+            #Filters <i class="fa-solid fa-caret-down filter-expand"></i>
           </button>
           <div class="filters" data-filters="">
             <div class="all-tasks" data-all-tasks="">
@@ -54,7 +61,7 @@
         </div>
         <div class="project-area" data-project-area="">
           <button class="projects-button" data-projects-button="">
-            #Projects <i>ICON</i>
+            #Projects <i class="fa-solid fa-caret-down projects-expand"></i>
           </button>
           <div class="projects" data-projects="">
             <ul class="projects-list" data-projects-list="">
@@ -71,28 +78,35 @@
       <div class="content-area" data-content-area="">
         <div class="task-area" data-task-area="">
           <ul class="task-list" data-task-list="">
-            <li class="task-list-item" data-task-list-item="" data-task-id="1">
+            <!-- <li class="task-list-item" data-task-list-item="" data-task-id="1">
               <div class="task-header" data-task-header="">
                 <div class="task-field" data-task-field="">
-                  <i class="check-box" data-check-box="">O</i>
+                  <i class="fa-solid fa-circle check-box-unchecked"></i>
+                  <i class="fa-solid fa-circle-check check-box-checked"></i>
                   <h2 class="task-text" data-task-text="">Task1</h2>
                 </div>
                 <div class="task-box-buttons" data-task-box-buttons="">
                   <button
-                    class="task-expand-button task-expand-button"
+                    class="task-expand-button expand-button"
                     data-task-expand-button=""
                   >
-                    <i>C</i>
+                    <i class="fa-solid fa-caret-down task-expand-icon"></i>
                   </button>
                   <div class="edit" data-edit="">
-                    <button class="edit-button task-expand-button" data-edit-button="" data-edit-flag="true">Edit <i>C</i></button>
+                    <button
+                      class="edit-button expand-button"
+                      data-edit-button=""
+                      data-edit-flag="true"
+                    >
+                      <i class="fa-solid fa-caret-down edit-expand-icon"></i>
+                    </button>
                   </div>
                   <div class="delete" data-delete="">
                     <button
-                      class="delete-button task-expand-button"
+                      class="delete-button expand-button"
                       data-delete-button=""
                     >
-                      Delete <i>C</i>
+                      <i class="fa-solid fa-caret-down delete-expand-icon"></i>
                     </button>
                   </div>
                 </div>
@@ -117,19 +131,19 @@
                     <h3 class="priority-header" data-priority-header="">Priority:</h3>
                     <div class="priority-boxes" data-priority-boxes="">
                       <button
-                        class="low-priority-button priority-button"
+                        class="low-priority-box priority-box"
                         data-low-priority-button=""
                       >
                         LOW
                       </button>
                       <button
-                        class="med-priority-button priority-button"
+                        class="med-priority-box priority-box"
                         data-med-priority-button=""
                       >
                         MED
                       </button>
                       <button
-                        class="high-priority-button priority-button"
+                        class="high-priority-box priority-box"
                         data-high-priority-button=""
                       >
                         HIGH
@@ -137,12 +151,12 @@
                     </div>
                     <div class="color-info" data-color-info="">
                       <h3 class="color-info-header" data-color-info-header="">Color:</h3>
-                      <i class="color-info-display" data-color-info-display="">C</i>
+                      <i class="fa-solid fa-circle color-info-icon"></i>
                     </div>
                   </div>
                 </div>
               </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -224,7 +238,7 @@
                   type="radio"
                   class="new-priority-input-low priority-input"
                   data-new-priority-input-low=""
-                  value="low"
+                  value="LOW"
                   checked
                 />
                 <input
@@ -232,14 +246,14 @@
                   type="radio"
                   class="new-priority-input-med priority-input"
                   data-new-priority-input-med=""
-                  value="med"
+                  value="MED"
                 />
                 <input
                   name="priority"
                   type="radio"
                   class="new-priority-input-high priority-input"
                   data-new-priority-input-high=""
-                  value="high"
+                  value="HIGH"
                 />
               </div>
             </div>

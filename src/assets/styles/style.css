@@ -103,6 +103,15 @@ body {
   margin-bottom: 15px;
   position: relative;
   top: 8px;
+  left: 58px;
+}
+.menu-expand::after {
+  content: "Home/Task List";
+  font-size: 8px;
+  color: var(--text-color);
+  position: absolute;
+  left: 8px;
+  top: 10px;
 }
 .nav {
   background: var(--primary-faded);
@@ -192,18 +201,49 @@ h4 {
   display: flex;
   margin-left: 10px;
 }
-.check-box {
+.check-box-unchecked {
   margin: 12px 5px 0 0px;
+  font-size: 26px;
+  /* display: none; */
+}
+.check-box-checked {
+  margin: 12px 5px 0 0px;
+  font-size: 26px;
+  color: red;
+  display: none;
 }
 .task-box-buttons {
+  position: relative;
+  left: 35px;
   display: flex;
-  gap: 50px;
+  gap: 60px;
 }
-.task-expand-button {
+.expand-button {
+  display: flex;
   background: transparent;
   border-style: none;
   color: var(--text-color);
   font-weight: 800;
+}
+.fa-caret-down {
+  color: var(--detail-color);
+  font-size: 24px;
+}
+.task-expand-icon::after {
+  content: "Edit";
+  font-size: 8px;
+  color: var(--text-color);
+  position: absolute;
+  left: 47px;
+  top: 10px;
+}
+.delete-expand::after {
+  content: "Delete";
+  font-size: 8px;
+  color: var(--text-color);
+  position: absolute;
+  left: 112px;
+  top: 10px;
 }
 .task-info-area {
   border-radius: 5px;
@@ -242,19 +282,29 @@ h4 {
   display: flex;
 }
 .project-paragraph,
-.due-date-paragraph,
-.color-info-display {
+.due-date-paragraph {
   margin: 8px 0 0 5px;
   font: var(--text-small);
+}
+.color-info-icon {
+  border-radius: 50%;
+  font-size: 24px;
+  margin-left: 8px;
+  position: relative;
+  top: 5px;
 }
 .priority-info {
   display: flex;
   justify-content: space-between;
 }
 .priority-boxes {
+  display: flex;
   margin: 5px 10px 10px 0;
 }
-.priority-button {
+.priority-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 60px;
   height: auto;
   margin: 0px 0 0 5px;
@@ -262,17 +312,16 @@ h4 {
   padding: 2px;
   border-radius: 5px;
   border-style: none;
-  cursor: pointer;
   color: var(--text-color);
   font-weight: 800;
 }
-.low-priority-button {
+.low-priority-box {
   background: var(--success-color);
 }
-.med-priority-button {
+.med-priority-box {
   background: var(--warning-color);
 }
-.high-priority-button {
+.high-priority-box {
   background: var(--error-color);
 }
 .new-task-button {
@@ -375,7 +424,7 @@ h4 {
   cursor: pointer;
 }
 .priority-input:checked {
-  border: 1px solid black;
+  border: 2px solid black;
 }
 .new-priority-input-low {
   background: var(--success-color);
@@ -420,4 +469,8 @@ h4 {
 }
 .content-area {
   /* display: none; */
+}
+
+.priority-border {
+  border: 3px solid black;
 }

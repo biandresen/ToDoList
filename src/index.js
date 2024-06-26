@@ -1,6 +1,6 @@
 //IMPORTS
 import "../src/assets/styles/style.css";
-import { submitTask } from "./submitTask.js";
+import { handleTaskSubmission } from "./taskHandler.js";
 ////////////////////////////////////////////
 
 //GET ELEMENTS
@@ -27,14 +27,14 @@ newTaskButton.addEventListener("click", () => {
 });
 newTaskSubmitArea.addEventListener("click", (event) => {
   event.preventDefault();
-  submitTask(event);
+  handleTaskSubmission(event);
 });
-editButton.addEventListener("click", () => {
-  const currentValue = editButton.getAttribute("data-edit-flag");
-  if (currentValue === "false") {
-    editButton.setAttribute("data-edit-flag", true);
-  } else {
-    editButton.setAttribute("data-edit-flag", false);
-  }
-  modal.showModal();
-});
+// editButton.addEventListener("click", () => {
+//   const currentValue = editButton.getAttribute("data-edit-flag");
+//   if (currentValue === "false") {
+//     editButton.setAttribute("data-edit-flag", true);
+//   } else {
+//     editButton.setAttribute("data-edit-flag", false);
+//   }
+//   modal.showModal();
+// });
