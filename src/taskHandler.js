@@ -1,8 +1,8 @@
 import { modal, taskList } from "./index.js";
 import { projectList } from "./index.js";
-import { editButton } from "./index.js";
+import renderListItemListsToUI from "./renderLiItemsListToUI.js";
 import Task from "./Task.js";
-import createListItemFromTask from "./createListItem.js";
+import taskListItemSetup from "./handleListItemFromTaskSetup.js";
 
 const SUBMIT = "submit";
 const taskForm = document.querySelector("[data-new-task-form]");
@@ -17,10 +17,9 @@ function handleTaskSubmission(event) {
     const task = createTask();
     taskList.push(task);
     pushProjectToList(task.project);
-    createListItemFromTask(taskList);
+    taskListItemSetup(taskList);
+    renderListItemListsToUI();
     modal.close();
-  } else if (editButton.getAttribute("data-edit-flag") === true) {
-    editTask();
   } else {
     modal.close();
   }

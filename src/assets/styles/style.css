@@ -3,6 +3,7 @@
 *::before,
 *::after {
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 h1,
@@ -13,8 +14,12 @@ h5,
 h6,
 p,
 button,
-div {
+div,
+i,
+label,
+input {
   font-size: 16px;
+  font-family: var(--main-font);
 }
 /* VARIABLES */
 :root {
@@ -29,16 +34,26 @@ div {
   --text-color: white;
   --box-shadow: 0px 5px 5px rgb(73, 73, 73);
   --text-shadow: 0px 2px 2px rgb(73, 73, 73);
-  /* --main-font: */
+  --main-font: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   --text-title: 24px bold;
   --text-body: 18px bold;
   --text-small: 14px;
   --margin-left1: 15px;
 }
+html {
+  height: -webkit-fill-available;
+  width: 375px;
+}
 body {
-  margin: 0;
+  height: 100vh;
+  height: 100svh;
+  /* height: 100dvh; */
+  height: 100%;
+  width: 375px;
+  background: var(--background-color);
 }
 .container {
+  position: relative;
   background: var(--secondary-color);
   display: grid;
   grid-template-rows: 0.3fr 5.55fr 0.5fr;
@@ -107,10 +122,11 @@ body {
 }
 .menu-expand::after {
   content: "Home/Task List";
-  font-size: 8px;
+  font-family: var(--main-font);
+  font-size: 13px;
   color: var(--text-color);
   position: absolute;
-  left: 8px;
+  left: -15px;
   top: 10px;
 }
 .nav {
@@ -179,10 +195,11 @@ h4 {
   background: var(--secondary-color);
 }
 .task-list {
-  margin: 10px 15px 10px 15px;
+  margin: 15px 15px 10px 15px;
   list-style: none;
   display: flex;
   flex-direction: column;
+  gap: 15px;
   box-shadow: var(--box-shadow);
 }
 .task-list-item {
@@ -196,25 +213,31 @@ h4 {
   display: flex;
   gap: 50px;
   align-items: center;
+  padding: 8px 0;
 }
 .task-field {
   display: flex;
   margin-left: 10px;
 }
+.task-text {
+  align-self: center;
+}
 .check-box-unchecked {
-  margin: 12px 5px 0 0px;
+  align-self: center;
+  margin-right: 5px;
   font-size: 26px;
   /* display: none; */
 }
 .check-box-checked {
-  margin: 12px 5px 0 0px;
+  align-self: center;
+  margin-right: 5px;
   font-size: 26px;
   color: red;
   display: none;
 }
 .task-box-buttons {
-  position: relative;
-  left: 35px;
+  position: fixed;
+  left: 155px;
   display: flex;
   gap: 60px;
 }
@@ -229,27 +252,47 @@ h4 {
   color: var(--detail-color);
   font-size: 24px;
 }
-.task-expand-icon::after {
-  content: "Edit";
-  font-size: 8px;
-  color: var(--text-color);
-  position: absolute;
-  left: 47px;
-  top: 10px;
+.fa-pen-to-square,
+.fa-trash {
+  color: var(--detail-color);
+  font-size: 17px;
+  align-self: center;
+  margin-top: 3px;
 }
-.delete-expand::after {
-  content: "Delete";
-  font-size: 8px;
+.edit-expand-icon {
+  display: flex;
+}
+.edit-expand-icon::after {
+  content: "Edit";
+  font-family: var(--main-font);
+  font-size: 14px;
   color: var(--text-color);
-  position: absolute;
-  left: 112px;
-  top: 10px;
+  align-self: center;
+  position: relative;
+  right: 47px;
+}
+.delete-expand-icon {
+  display: flex;
+}
+.delete-expand-icon::after {
+  content: "Delete";
+  font-family: var(--main-font);
+  font-size: 14px;
+  color: var(--text-color);
+  align-self: center;
+  align-self: center;
+  position: relative;
+  right: 60px;
 }
 .task-info-area {
+  display: none;
   border-radius: 5px;
   background: var(--primary-faded);
   padding-bottom: 5px;
   box-shadow: var(--box-shadow);
+}
+.task-info-area.hide {
+  display: inline-block;
 }
 .task-note-area,
 .task-extra-info {
@@ -325,11 +368,11 @@ h4 {
   background: var(--error-color);
 }
 .new-task-button {
-  position: absolute;
-  top: 580px;
-  left: 300px;
-  width: 60px;
+  position: fixed;
+  bottom: 190px;
+  right: 80px;
   height: 60px;
+  width: 60px;
   border-radius: 50%;
   color: var(--background-color);
   box-shadow: var(--box-shadow);
@@ -337,6 +380,7 @@ h4 {
   font-size: 50px;
   border-style: none;
   cursor: pointer;
+  z-index: 10;
 }
 .color-info {
   display: flex;
@@ -345,8 +389,9 @@ h4 {
   left: 200px;
 }
 .modal {
-  width: 98vw;
+  width: min(360px, 95vw);
   height: 40vh;
+  margin: 100px 0 0 10px;
   background: var(--primary-color);
   border-color: var(--detail-color);
   border-radius: 5px;
@@ -419,7 +464,7 @@ h4 {
   padding-top: 2px;
   margin: 0 10px 0 0;
   color: var(--text-color);
-  font: 14px;
+  font-size: 13px;
   font-weight: 800;
   cursor: pointer;
 }

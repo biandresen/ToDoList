@@ -1,11 +1,13 @@
 import createElement from "./createElement.js";
-const taskUnorderedList = document.querySelector("[data-task-list]");
+import { constructedLiList } from "./index.js";
+import { toggleTaskInfo } from "./eventFunctions.js";
 const LOW = "LOW";
 const MED = "MED";
 const HIGH = "HIGH";
 
-function createListItemFromTask(taskList) {
+function taskListItemSetup(taskList) {
   let newestTask = taskList.length - 1;
+
   //CREATE ELEMENTS
   const li = createElement("li", "task-list-item");
   li.setAttribute("id", newestTask);
@@ -29,13 +31,13 @@ function createListItemFromTask(taskList) {
   editButton.classList.add("expand-button");
   editButton.setAttribute("data-edit-flag", "false");
   const editExpandIcon = createElement("i", "fa-solid");
-  editExpandIcon.classList.add("fa-caret-down");
+  editExpandIcon.classList.add("fa-pen-to-square");
   editExpandIcon.classList.add("edit-expand-icon");
   const divDelete = createElement("div", "delete");
   const deleteButton = createElement("button", "delete-button");
   deleteButton.classList.add("expand-button");
   const deleteExpandIcon = createElement("i", "fa-solid");
-  deleteExpandIcon.classList.add("fa-caret-down");
+  deleteExpandIcon.classList.add("fa-trash");
   deleteExpandIcon.classList.add("delete-expand-icon");
   const divTaskInfoArea = createElement("div", "task-info-area");
   const divNoteArea = createElement("div", "task-note-area");
@@ -111,7 +113,13 @@ function createListItemFromTask(taskList) {
   divPriorityInfo.append(priorityHeader, divPriorityBoxes, divColorInfo);
   divPriorityBoxes.append(boxLowPriority, boxMedPriority, boxHighPriority);
   divColorInfo.append(colorInfoHeader, colorInfoIcon);
-  taskUnorderedList.appendChild(li);
+
+  constructedLiList.push(li);
+
+  //ADD EVENT LISTENERS
+  taskExpandButton.addEventListener("click", () => {
+    toggleTaskInfo(divTaskInfoArea);
+  });
 }
 
-export default createListItemFromTask;
+export default taskListItemSetup;

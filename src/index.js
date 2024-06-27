@@ -13,13 +13,13 @@ const weekButton = document.querySelector("[data-week-button]");
 const monthButton = document.querySelector("[data-month-button]");
 const projectsButton = document.querySelector("[data-projects-button]");
 const newTaskButton = document.querySelector("[data-new-task-button]");
-export const editButton = document.querySelector("[data-edit-button]");
 const newTaskSubmitArea = document.querySelector("[data-new-task-submit-area]");
 export const modal = document.querySelector("[data-modal]");
 /////////////////////////////////////////////////////////////////////////////////////////
 //DECLARE LISTS
 export const taskList = [];
 export const projectList = [];
+export const constructedLiList = [];
 ////////////////////////
 //DECLARE EVENT LISTENERS
 newTaskButton.addEventListener("click", () => {
