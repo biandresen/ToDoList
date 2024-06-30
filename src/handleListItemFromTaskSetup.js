@@ -1,6 +1,6 @@
 import createElement from "./createElement.js";
 import { constructedLiList } from "./index.js";
-import { toggleTaskInfo } from "./eventFunctions.js";
+import { toggleTaskInfo, deleteTask } from "./eventFunctions.js";
 const LOW = "LOW";
 const MED = "MED";
 const HIGH = "HIGH";
@@ -115,10 +115,14 @@ function taskListItemSetup(taskList) {
   divColorInfo.append(colorInfoHeader, colorInfoIcon);
 
   constructedLiList.push(li);
+  console.log(constructedLiList);
 
   //ADD EVENT LISTENERS
   taskExpandButton.addEventListener("click", () => {
     toggleTaskInfo(divTaskInfoArea);
+  });
+  deleteButton.addEventListener("click", (event) => {
+    deleteTask(event);
   });
 }
 
