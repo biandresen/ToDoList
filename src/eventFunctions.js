@@ -1,5 +1,12 @@
-import { constructedLiList } from "./index.js";
-import renderListItemListsToUI from "./renderLiItemsListToUI.js";
+import { constructedTaskLiList, taskList } from "./index.js";
+import render from "./render.js";
+
+//GET ELEMENTS
+
+function toggleNavBar() {
+  const navBar = document.querySelector("[data-nav]");
+  navBar.classList.toggle("hide");
+}
 
 function toggleTaskInfo(divTaskInfoArea) {
   divTaskInfoArea.classList.toggle("hide");
@@ -9,12 +16,14 @@ function deleteTask(event) {
   const respectiveListItem =
     event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
   const respectiveListItemId = respectiveListItem.getAttribute("id");
-  const indexMatchingTheId = constructedLiList.findIndex(
+  const indexMatchingTheId = constructedTaskLiList.findIndex(
     (item) => item.id === respectiveListItemId
   );
 
-  constructedLiList.splice(indexMatchingTheId, 1);
-  renderListItemListsToUI();
+  constructedTaskLiList.splice(indexMatchingTheId, 1);
+  taskList.splice(indexMatchingTheId, 1);
+
+  render();
 }
 
-export { toggleTaskInfo, deleteTask };
+export { toggleTaskInfo, deleteTask, toggleNavBar };

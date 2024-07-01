@@ -1,7 +1,7 @@
 //IMPORTS
 import "../src/assets/styles/style.css";
 import { handleTaskSubmission } from "./taskHandler.js";
-////////////////////////////////////////////
+import { toggleNavBar } from "./eventFunctions.js";
 
 //GET ELEMENTS
 const menuButton = document.querySelector("[data-menu-button]");
@@ -15,13 +15,17 @@ const projectsButton = document.querySelector("[data-projects-button]");
 const newTaskButton = document.querySelector("[data-new-task-button]");
 const newTaskSubmitArea = document.querySelector("[data-new-task-submit-area]");
 export const modal = document.querySelector("[data-modal]");
-/////////////////////////////////////////////////////////////////////////////////////////
-//DECLARE LISTS
+
+//DECLARATION OF LISTS
 export const taskList = [];
+export const constructedTaskLiList = [];
 export const projectList = [];
-export const constructedLiList = [];
-////////////////////////
-//DECLARE EVENT LISTENERS
+export const constructedProjectLiList = [];
+
+//DECLARATION OF EVENT LISTENERS
+menuButton.addEventListener("click", () => {
+  toggleNavBar();
+});
 newTaskButton.addEventListener("click", () => {
   modal.showModal();
 });
@@ -29,6 +33,10 @@ newTaskSubmitArea.addEventListener("click", (event) => {
   event.preventDefault();
   handleTaskSubmission(event);
 });
+// projectsButton.addEventListener("click", ()=>{
+
+// })
+
 // editButton.addEventListener("click", () => {
 //   const currentValue = editButton.getAttribute("data-edit-flag");
 //   if (currentValue === "false") {

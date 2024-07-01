@@ -1,16 +1,20 @@
+//IMPORTS
 import createElement from "./createElement.js";
-import { constructedLiList } from "./index.js";
+import { constructedTaskLiList } from "./index.js";
 import { toggleTaskInfo, deleteTask } from "./eventFunctions.js";
+
+//DECLARATIONS
 const LOW = "LOW";
 const MED = "MED";
 const HIGH = "HIGH";
+/////////////////////////////////////////////////////////////////////
 
-function taskListItemSetup(taskList) {
+function setupTaskElements(taskList) {
   let newestTask = taskList.length - 1;
 
   //CREATE ELEMENTS
-  const li = createElement("li", "task-list-item");
-  li.setAttribute("id", newestTask);
+  const taskListItem = createElement("li", "task-list-item");
+  taskListItem.setAttribute("id", newestTask);
   const divTaskHeader = createElement("div", "task-header");
   const divTaskField = createElement("div", "task-field");
   const iconUnchecked = createElement("i", "fa-solid");
@@ -92,10 +96,9 @@ function taskListItemSetup(taskList) {
   } else {
     boxHighPriority.classList.add("priority-border");
   }
-  console.log(taskList[newestTask].priority);
 
   //APPEND ELEMENTS
-  li.append(divTaskHeader, divTaskInfoArea);
+  taskListItem.append(divTaskHeader, divTaskInfoArea);
   divTaskHeader.append(divTaskField, divBoxButtons);
   divTaskField.append(iconUnchecked, iconChecked, taskText);
   divBoxButtons.append(taskExpandButton, divEdit, divDelete);
@@ -114,8 +117,7 @@ function taskListItemSetup(taskList) {
   divPriorityBoxes.append(boxLowPriority, boxMedPriority, boxHighPriority);
   divColorInfo.append(colorInfoHeader, colorInfoIcon);
 
-  constructedLiList.push(li);
-  console.log(constructedLiList);
+  constructedTaskLiList.push(taskListItem);
 
   //ADD EVENT LISTENERS
   taskExpandButton.addEventListener("click", () => {
@@ -126,4 +128,4 @@ function taskListItemSetup(taskList) {
   });
 }
 
-export default taskListItemSetup;
+export default setupTaskElements;

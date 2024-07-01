@@ -136,6 +136,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.nav.hide {
+  display: none;
+}
 .filter-area {
   margin-top: 15px;
   margin-left: var(--margin-left1);
@@ -508,12 +511,6 @@ h4 {
 .footer {
   background: var(--secondary-color);
   grid-row: 3 / 4;
-}
-.nav {
-  display: none;
-}
-.content-area {
-  /* display: none; */
 }
 
 .priority-border {
