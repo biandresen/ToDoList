@@ -21,6 +21,9 @@ export const taskList = [];
 export const constructedTaskLiList = [];
 export const projectList = [];
 export const constructedProjectLiList = [];
+export const todayTaskList = [];
+export const tomorrowTaskList = [];
+export const monthTaskList = [];
 
 //DECLARATION OF EVENT LISTENERS
 menuButton.addEventListener("click", toggleNavBar);
