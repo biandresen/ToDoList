@@ -136,9 +136,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-.nav.hide {
-  display: none;
-}
 .filter-area {
   margin-top: 15px;
   margin-left: var(--margin-left1);
@@ -157,7 +154,10 @@ body {
   color: var(--text-color);
   margin-left: 10px;
 }
-.projects.hide {
+
+.projects.hide,
+.filters.hide,
+.nav.hide {
   display: none;
 }
 .all-tasks,

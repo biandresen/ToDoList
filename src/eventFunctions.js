@@ -8,6 +8,11 @@ function toggleNavBar() {
   navBar.classList.toggle("hide");
 }
 
+function toggleFilters() {
+  const filters = document.querySelector("[data-filters]");
+  filters.classList.toggle("hide");
+}
+
 function toggleProjectsMenu() {
   const projects = document.querySelector("[data-projects]");
   projects.classList.toggle("hide");
@@ -31,4 +36,4 @@ function deleteTask(event) {
   render();
 }
 
-export { toggleTaskInfo, deleteTask, toggleNavBar, toggleProjectsMenu };
+export { toggleTaskInfo, deleteTask, toggleNavBar, toggleProjectsMenu, toggleFilters };
