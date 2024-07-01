@@ -1,7 +1,7 @@
 //IMPORTS
 import "../src/assets/styles/style.css";
 import { handleTaskSubmission } from "./taskHandler.js";
-import { toggleNavBar } from "./eventFunctions.js";
+import { toggleNavBar, toggleProjectsMenu } from "./eventFunctions.js";
 
 //GET ELEMENTS
 const menuButton = document.querySelector("[data-menu-button]");
@@ -25,6 +25,9 @@ export const constructedProjectLiList = [];
 //DECLARATION OF EVENT LISTENERS
 menuButton.addEventListener("click", () => {
   toggleNavBar();
+});
+projectsButton.addEventListener("click", () => {
+  toggleProjectsMenu();
 });
 newTaskButton.addEventListener("click", () => {
   modal.showModal();

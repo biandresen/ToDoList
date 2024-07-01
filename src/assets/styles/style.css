@@ -157,6 +157,9 @@ body {
   color: var(--text-color);
   margin-left: 10px;
 }
+.projects.hide {
+  display: none;
+}
 .all-tasks,
 .today,
 .tomorrow,
