@@ -53,6 +53,7 @@ body {
   background: var(--background-color);
 }
 .container {
+  height: 100%;
   position: relative;
   background: var(--secondary-color);
   display: grid;
@@ -75,6 +76,7 @@ body {
   align-items: center;
 }
 .profile-picture {
+  display: grid;
   background: var(--detail-color);
   border-radius: 50%;
   width: 50px;
@@ -82,16 +84,23 @@ body {
   margin-left: var(--margin-left1);
   margin-right: 8px;
 }
+.fa-user {
+  font-size: 26px;
+  color: var(--background-color);
+  place-self: center;
+}
 .profile-names {
   color: var(--text-color);
 }
 .profile-username {
-  font: var(--text-body);
+  font: var(--text-title);
+  font-weight: 800;
   margin: 0;
   padding: 0;
 }
 .profile-id {
-  font: var(--text-small);
+  font-size: 12px;
+  font-weight: 100;
   margin: 0;
   padding: 0;
 }
@@ -105,7 +114,7 @@ body {
   font-weight: 1000;
   letter-spacing: 0.5px;
   margin-left: 30px;
-  margin-top: 20px;
+  margin-top: 10px;
   position: relative;
   top: 10px;
 }
@@ -121,7 +130,9 @@ body {
   left: -5px;
 }
 .menu-expand-text {
-  margin-right: 5px;
+  margin: 0 5px 0 0;
+  position: relative;
+  bottom: 4px;
 }
 .nav {
   background: var(--primary-faded);
@@ -129,6 +140,7 @@ body {
   grid-row: 2 / 3;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .filter-area {
   margin-top: 15px;
@@ -393,8 +405,8 @@ h4 {
 }
 .new-task-button {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 25px;
+  right: 25px;
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -465,14 +477,10 @@ h4 {
   text-wrap: wrap;
   height: 65%;
 }
-.new-color-area {
-}
 .new-color-input {
   background: transparent;
   border-color: transparent;
   width: 25px;
-}
-.new-date-area {
 }
 .new-priority-area {
   margin-top: 10px;
@@ -531,7 +539,9 @@ h4 {
 }
 .footer {
   background: var(--secondary-color);
-  grid-row: 3 / 4;
+  /* grid-row: 3 / 4; */
+  position: sticky;
+  height: 100px;
 }
 
 .priority-border {
