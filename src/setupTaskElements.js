@@ -1,7 +1,7 @@
 //IMPORTS
 import createElement from "./createElement.js";
 import { constructedTaskLiList } from "./index.js";
-import { toggleTaskInfo, deleteTask } from "./eventFunctions.js";
+import { toggleTaskInfo, deleteTask, handleTaskCheck } from "./eventFunctions.js";
 
 //DECLARATIONS
 const LOW = "LOW";
@@ -125,6 +125,9 @@ function setupTaskElements(taskList) {
   });
   deleteButton.addEventListener("click", (event) => {
     deleteTask(event);
+  });
+  divTaskField.addEventListener("click", () => {
+    handleTaskCheck(iconChecked, iconUnchecked, divTaskHeader, taskText);
   });
 }
 

@@ -26,6 +26,13 @@ function toggleProjectsMenu() {
   projectsExpandIcon.classList.toggle("rotate-0");
 }
 
+function handleTaskCheck(iconChecked, iconUnchecked, divTaskHeader, taskText) {
+  iconUnchecked.classList.toggle("hide");
+  iconChecked.classList.toggle("hide");
+  divTaskHeader.classList.toggle("low-opacity");
+  taskText.classList.toggle("line-through");
+}
+
 function toggleTaskInfo(divTaskInfoArea, taskExpandIcon) {
   divTaskInfoArea.classList.toggle("hide");
   taskExpandIcon.classList.toggle("rotate-180");
@@ -45,4 +52,11 @@ function deleteTask(event) {
   render();
 }
 
-export { toggleTaskInfo, deleteTask, toggleNavBar, toggleProjectsMenu, toggleFilters };
+export {
+  handleTaskCheck,
+  toggleTaskInfo,
+  deleteTask,
+  toggleNavBar,
+  toggleProjectsMenu,
+  toggleFilters,
+};

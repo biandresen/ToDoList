@@ -229,7 +229,9 @@ h4 {
   align-self: center;
   margin-right: 5px;
   font-size: 26px;
-  /* display: none; */
+}
+.check-box-unchecked.hide {
+  display: none;
 }
 .check-box-checked {
   align-self: center;
@@ -237,6 +239,15 @@ h4 {
   font-size: 26px;
   color: red;
   display: none;
+}
+.check-box-checked.hide {
+  display: inline-block;
+}
+.low-opacity {
+  opacity: 0.5;
+}
+.line-through {
+  text-decoration: line-through;
 }
 .task-box-buttons {
   position: fixed;
@@ -383,7 +394,7 @@ h4 {
 .new-task-button {
   position: fixed;
   bottom: 80px;
-  right:20px;
+  right: 20px;
   height: 60px;
   width: 60px;
   border-radius: 50%;
