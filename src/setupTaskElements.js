@@ -121,7 +121,7 @@ function setupTaskElements(taskList) {
 
   //ADD EVENT LISTENERS
   taskExpandButton.addEventListener("click", () => {
-    toggleTaskInfo(divTaskInfoArea);
+    toggleTaskInfo(divTaskInfoArea, taskExpandIcon);
   });
   deleteButton.addEventListener("click", (event) => {
     deleteTask(event);

@@ -36,9 +36,6 @@ newTaskSubmitArea.addEventListener("click", (event) => {
   event.preventDefault();
   handleTaskSubmission(event);
 });
-// projectsButton.addEventListener("click", ()=>{
-
-// })
 
 // editButton.addEventListener("click", () => {
 //   const currentValue = editButton.getAttribute("data-edit-flag");
