@@ -131,4 +131,8 @@ function setupTaskElements(taskList) {
   });
 }
 
+function sortTasks(){
+  
+}
+
 export default setupTaskElements;

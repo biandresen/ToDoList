@@ -1,3 +1,4 @@
+import { toggleNavBar } from "./eventFunctions.js";
 import {
   taskList,
   constructedTaskLiList,
@@ -16,10 +17,15 @@ const tomorrowAmount = document.querySelector("[data-tomorrow-number]");
 const monthAmount = document.querySelector("[data-month-number]");
 
 function render() {
-  renderListItemListsToUI();
+  renderListItemListsToUI(constructedTaskLiList);
   getAmountOfTasksInProjects();
   renderProjectsToUI();
   getAmountOfTasksInFilters();
+}
+
+function renderFilteredTasks(list) {
+  renderListItemListsToUI(list);
+  toggleNavBar();
 }
 
 function getAmountOfTasksInFilters() {
@@ -78,10 +84,10 @@ function getMonthAmount() {
   return monthTaskList.length;
 }
 
-function renderListItemListsToUI() {
+function renderListItemListsToUI(list) {
   const taskUnorderedList = document.querySelector("[data-task-list]");
   taskUnorderedList.innerHTML = "";
-  taskUnorderedList.append(...constructedTaskLiList);
+  taskUnorderedList.append(...list);
 }
 
 function renderProjectsToUI() {
@@ -111,4 +117,4 @@ function getAmountOfTasksInProjects() {
   });
 }
 
-export default render;
+export { render, renderFilteredTasks };

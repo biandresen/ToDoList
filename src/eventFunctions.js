@@ -1,5 +1,5 @@
 import { constructedTaskLiList, taskList } from "./index.js";
-import render from "./render.js";
+import { render } from "./render.js";
 
 //GET ELEMENTS
 
@@ -46,6 +46,8 @@ function deleteTask(event) {
     (item) => item.id === respectiveListItemId
   );
 
+  //delete/update all filtered lists so the respective deleted task is removed from all lists
+  
   constructedTaskLiList.splice(indexMatchingTheId, 1);
   taskList.splice(indexMatchingTheId, 1);
 

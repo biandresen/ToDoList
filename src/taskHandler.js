@@ -1,6 +1,6 @@
 import { modal, taskList, projectList } from "./index.js";
 import { setupProjectElements } from "./setupProjectElements.js";
-import render from "./render.js";
+import { render } from "./render.js";
 import Task from "./Task.js";
 import setupTaskElements from "./setupTaskElements.js";
 
