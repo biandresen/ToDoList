@@ -24,26 +24,40 @@ export const constructedProjectLiList = [];
 export const todayTaskList = [];
 export const tomorrowTaskList = [];
 export const monthTaskList = [];
+export const tasksMatchingProjectName = [];
+export let filterFlag = "allTasks";
 
 //DECLARATION OF EVENT LISTENERS
 menuButton.addEventListener("click", toggleNavBar);
+
 filtersButton.addEventListener("click", toggleFilters);
+
 allTasksButton.addEventListener("click", () => {
+  filterFlag = "allTasks";
   renderFilteredTasks(constructedTaskLiList);
 });
+
 todayTasksButton.addEventListener("click", () => {
+  filterFlag = "todayTasks";
   renderFilteredTasks(todayTaskList);
 });
+
 tomorrowTasksButton.addEventListener("click", () => {
+  filterFlag = "tomorrowTasks";
   renderFilteredTasks(tomorrowTaskList);
 });
+
 monthTasksButton.addEventListener("click", () => {
+  filterFlag = "monthTasks";
   renderFilteredTasks(monthTaskList);
 });
+
 projectsButton.addEventListener("click", toggleProjectsMenu);
+
 newTaskButton.addEventListener("click", () => {
   modal.showModal();
 });
+
 newTaskSubmitArea.addEventListener("click", (event) => {
   event.preventDefault();
   handleTaskSubmission(event);

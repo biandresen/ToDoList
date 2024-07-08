@@ -7,6 +7,7 @@ import {
   todayTaskList,
   tomorrowTaskList,
   monthTaskList,
+  tasksMatchingProjectName,
 } from "./index.js";
 
 let todayDate = getTodayDate();
@@ -17,7 +18,6 @@ const tomorrowAmount = document.querySelector("[data-tomorrow-number]");
 const monthAmount = document.querySelector("[data-month-number]");
 
 function render() {
-  renderListItemListsToUI(constructedTaskLiList);
   getAmountOfTasksInProjects();
   renderProjectsToUI();
   getAmountOfTasksInFilters();
@@ -117,4 +117,16 @@ function getAmountOfTasksInProjects() {
   });
 }
 
-export { render, renderFilteredTasks };
+function renderProjectTasks(event) {
+  const targetProjectName = event.target.textContent;
+  constructedTaskLiList.forEach((task) => {
+    if (
+      task.childNodes[1].childNodes[1].childNodes[0].childNodes[1].textContent ==
+      targetProjectName
+    ) {
+      tasksMatchingProjectName.push(task);
+    }
+  });
+}
+
+export { render, renderFilteredTasks, renderProjectTasks, renderListItemListsToUI };

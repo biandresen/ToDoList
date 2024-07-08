@@ -41,11 +41,6 @@ function createTask() {
   return task;
 }
 
-// function editTask() {
-//   const existingID = task.id;
-//   taskList[existingID] = task;
-// }
-
 function pushProjectToList(project) {
   if (projectList.includes(project)) return;
   projectList.push(project);
