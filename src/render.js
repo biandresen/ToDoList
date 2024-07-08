@@ -3,6 +3,7 @@ import {
   taskList,
   constructedTaskLiList,
   constructedProjectLiList,
+  tasksSortedByProject,
   projectList,
   todayTaskList,
   tomorrowTaskList,
@@ -129,4 +130,26 @@ function renderProjectTasks(event) {
   });
 }
 
-export { render, renderFilteredTasks, renderProjectTasks, renderListItemListsToUI };
+function setupProjectFilterList(event) {
+  //reset list before displaying new tasks based on it's filter
+  tasksSortedByProject.length = 0;
+  const projectName = event.target.textContent;
+  constructedTaskLiList.forEach((task) => {
+    if (
+      task.childNodes[1].childNodes[1].childNodes[0].childNodes[1].textContent ==
+      projectName
+    ) {
+      tasksSortedByProject.push(task);
+    }
+  });
+  console.log(tasksSortedByProject);
+  renderFilteredTasks(tasksSortedByProject);
+}
+
+export {
+  render,
+  renderFilteredTasks,
+  renderProjectTasks,
+  renderListItemListsToUI,
+  setupProjectFilterList,
+};
