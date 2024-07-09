@@ -1,5 +1,6 @@
 import { toggleNavBar } from "./eventFunctions.js";
 import {
+  filterFlag,
   taskList,
   constructedTaskLiList,
   constructedProjectLiList,
@@ -93,12 +94,12 @@ function renderListItemListsToUI(list) {
 
 function renderProjectsToUI() {
   const projectsUl = document.querySelector("[data-projects-list]");
-  projectsUl.innerHTML = " ";
+  projectsUl.innerHTML = "";
 
   constructedProjectLiList.forEach((listItem) => {
     const id = listItem.id;
     if (listItem.querySelector(".project-span-h4").textContent == 0) {
-      constructedProjectLiList.splice("id", 1);
+      constructedProjectLiList.splice(id, 1);
     }
   });
   projectsUl.append(...constructedProjectLiList);
@@ -113,6 +114,9 @@ function getAmountOfTasksInProjects() {
     constructedProjectLiList.forEach((listItem) => {
       if (listItem.getAttribute("name") === project) {
         listItem.querySelector(".project-span-h4").textContent = amount;
+      }
+      if (amount <= 0) {
+        listItem.remove();
       }
     });
   });
@@ -133,6 +137,8 @@ function renderProjectTasks(event) {
 function setupProjectFilterList(event) {
   //reset list before displaying new tasks based on it's filter
   tasksSortedByProject.length = 0;
+  filterFlag[0] = "project";
+  console.log(filterFlag[0]);
   const projectName = event.target.textContent;
   constructedTaskLiList.forEach((task) => {
     if (
@@ -142,7 +148,6 @@ function setupProjectFilterList(event) {
       tasksSortedByProject.push(task);
     }
   });
-  console.log(tasksSortedByProject);
   renderFilteredTasks(tasksSortedByProject);
 }
 

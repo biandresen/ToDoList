@@ -4,6 +4,7 @@ import {
   monthTaskList,
   constructedTaskLiList,
   taskList,
+  tasksSortedByProject,
 } from "./index.js";
 import { render, renderListItemListsToUI } from "./render.js";
 import { filterFlag } from "./index.js";
@@ -62,7 +63,12 @@ function deleteTask(event) {
   const indexMatchingTheIdInTomorrowTaskList = tomorrowTaskList.findIndex(
     (item) => item.id === respectiveListItemId
   );
+  //Find the id in monthTaskList
   const indexMatchingTheIdInMonthTaskList = monthTaskList.findIndex(
+    (item) => item.id === respectiveListItemId
+  );
+  //Find the id in project-filter-list
+  const indexMatchingTheIdInProjectTaskList = tasksSortedByProject.findIndex(
     (item) => item.id === respectiveListItemId
   );
 
@@ -73,16 +79,20 @@ function deleteTask(event) {
   todayTaskList.splice(indexMatchingTheIdInTodayTaskList, 1);
   tomorrowTaskList.splice(indexMatchingTheIdInTomorrowTaskList, 1);
   monthTaskList.splice(indexMatchingTheIdInMonthTaskList, 1);
+  tasksSortedByProject.splice(indexMatchingTheIdInProjectTaskList, 1);
 
   //Make sure the updated list displays the tasks relative to the filter the user is on (or last clicked on)
-  if (filterFlag === "allTasks") {
+  if (filterFlag[0] == "allTasks") {
     renderListItemListsToUI(constructedTaskLiList);
-  } else if (filterFlag === "todayTasks") {
+  } else if (filterFlag[0] == "todayTasks") {
     renderListItemListsToUI(todayTaskList);
-  } else if (filterFlag === "tomorrowTasks") {
+  } else if (filterFlag[0] == "tomorrowTasks") {
     renderListItemListsToUI(tomorrowTaskList);
-  } else renderListItemListsToUI(monthTaskList);
-
+  } else if (filterFlag[0] == "monthTasks") {
+    renderListItemListsToUI(monthTaskList);
+  } else if (filterFlag[0] == "project") {
+    renderListItemListsToUI(tasksSortedByProject);
+  }
   render();
 }
 

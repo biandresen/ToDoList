@@ -26,7 +26,7 @@ export const todayTaskList = [];
 export const tomorrowTaskList = [];
 export const monthTaskList = [];
 export const tasksMatchingProjectName = [];
-export let filterFlag = "allTasks";
+export const filterFlag = ["allTasks"];
 
 //DECLARATION OF EVENT LISTENERS
 menuButton.addEventListener("click", toggleNavBar);
@@ -34,22 +34,26 @@ menuButton.addEventListener("click", toggleNavBar);
 filtersButton.addEventListener("click", toggleFilters);
 
 allTasksButton.addEventListener("click", () => {
-  filterFlag = "allTasks";
+  filterFlag[0] = "allTasks";
+  console.log(filterFlag[0]);
   renderFilteredTasks(constructedTaskLiList);
 });
 
 todayTasksButton.addEventListener("click", () => {
-  filterFlag = "todayTasks";
+  filterFlag[0] = "todayTasks";
+  console.log(filterFlag[0]);
   renderFilteredTasks(todayTaskList);
 });
 
 tomorrowTasksButton.addEventListener("click", () => {
-  filterFlag = "tomorrowTasks";
+  filterFlag[0] = "tomorrowTasks";
+  console.log(filterFlag[0]);
   renderFilteredTasks(tomorrowTaskList);
 });
 
 monthTasksButton.addEventListener("click", () => {
-  filterFlag = "monthTasks";
+  filterFlag[0] = "monthTasks";
+  console.log(filterFlag[0]);
   renderFilteredTasks(monthTaskList);
 });
 
