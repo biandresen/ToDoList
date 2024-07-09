@@ -68,13 +68,3 @@ newTaskSubmitArea.addEventListener("click", (event) => {
   event.preventDefault();
   handleTaskSubmission(event);
 });
-
-// editButton.addEventListener("click", () => {
-//   const currentValue = editButton.getAttribute("data-edit-flag");
-//   if (currentValue === "false") {
-//     editButton.setAttribute("data-edit-flag", true);
-//   } else {
-//     editButton.setAttribute("data-edit-flag", false);
-//   }
-//   modal.showModal();
-// });

@@ -42,18 +42,19 @@ input {
 }
 html {
   height: -webkit-fill-available;
-  width: 375px;
+  margin: auto;
 }
 body {
   height: 100vh;
   height: 100svh;
   /* height: 100dvh; */
   height: 100%;
-  width: 375px;
+  /* width: 100%; */
   background: var(--background-color);
 }
 .container {
   height: 100%;
+  width: 100%;
   position: relative;
   background: var(--secondary-color);
   display: grid;
@@ -119,6 +120,7 @@ body {
   top: 10px;
 }
 .menu-button {
+  cursor: pointer;
   color: var(--text-color);
   border: none;
   background: transparent;
@@ -148,6 +150,7 @@ body {
 }
 .filters-button,
 .projects-button {
+  cursor: pointer;
   margin-bottom: 10px;
   color: var(--text-color);
   background: transparent;
@@ -183,6 +186,7 @@ body {
 .week-button,
 .month-button,
 .project-list-item-button {
+  cursor: pointer;
   color: var(--text-color);
   background: transparent;
   border: none;
@@ -231,6 +235,7 @@ h4 {
   padding: 8px 0;
 }
 .task-field {
+  cursor: pointer;
   display: flex;
   margin-left: 10px;
 }
@@ -273,6 +278,7 @@ h4 {
   border-style: none;
   color: var(--text-color);
   font-weight: 800;
+  cursor: pointer;
 }
 .filter-expand,
 .projects-expand {
@@ -425,15 +431,15 @@ h4 {
   left: 200px;
 }
 .modal {
-  width: min(360px, 95vw);
-  height: 40vh;
-  margin: 100px 0 0 10px;
+  width: max(375px, 98%);
+  height: max(290px, 50%);
+  margin: auto;
   background: var(--primary-color);
   border-color: var(--detail-color);
   border-radius: 5px;
 }
 .modal-content {
-  margin: 10px;
+  padding: 15px 0 0 8px;
   color: var(--text-color);
 }
 .new-task-form {

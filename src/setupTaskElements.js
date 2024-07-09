@@ -1,7 +1,12 @@
 //IMPORTS
 import createElement from "./createElement.js";
 import { constructedTaskLiList } from "./index.js";
-import { toggleTaskInfo, deleteTask, handleTaskCheck } from "./eventFunctions.js";
+import {
+  toggleTaskInfo,
+  editTask,
+  deleteTask,
+  handleTaskCheck,
+} from "./eventFunctions.js";
 
 //DECLARATIONS
 const LOW = "LOW";
@@ -70,12 +75,12 @@ function setupTaskElements(taskList) {
   colorInfoIcon.classList.add("fa-circle");
 
   //GIVE ELEMENTS VALUES
-  taskList[newestTask].title === ""
+  taskList[newestTask].title == ""
     ? (taskText.textContent = "Task")
     : (taskText.textContent = taskList[newestTask].title);
   noteHeader.textContent = "Note";
-  taskList[newestTask].note === ""
-    ? (noteParagraph.textContent = "...")
+  taskList[newestTask].note == ""
+    ? (noteParagraph.textContent = "<description>")
     : (noteParagraph.textContent = taskList[newestTask].note);
   projectHeader.textContent = "Project: ";
   projectParagraph.textContent = taskList[newestTask].project;
@@ -122,6 +127,9 @@ function setupTaskElements(taskList) {
   //ADD EVENT LISTENERS
   taskExpandButton.addEventListener("click", () => {
     toggleTaskInfo(divTaskInfoArea, taskExpandIcon);
+  });
+  editButton.addEventListener("click", (event) => {
+    editTask(event);
   });
   deleteButton.addEventListener("click", (event) => {
     deleteTask(event);
