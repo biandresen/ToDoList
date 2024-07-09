@@ -1,5 +1,6 @@
 import { toggleNavBar } from "./eventFunctions.js";
 import {
+  menuExpandText,
   filterFlag,
   taskList,
   constructedTaskLiList,
@@ -137,9 +138,10 @@ function renderProjectTasks(event) {
 function setupProjectFilterList(event) {
   //reset list before displaying new tasks based on it's filter
   tasksSortedByProject.length = 0;
+
   filterFlag[0] = "project";
-  console.log(filterFlag[0]);
   const projectName = event.target.textContent;
+  menuExpandText.textContent = projectName;
   constructedTaskLiList.forEach((task) => {
     if (
       task.childNodes[1].childNodes[1].childNodes[0].childNodes[1].textContent ==

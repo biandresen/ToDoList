@@ -6,6 +6,7 @@ import { renderFilteredTasks } from "./render.js";
 
 //GET ELEMENTS
 const menuButton = document.querySelector("[data-menu-button]");
+export const menuExpandText = document.querySelector("[data-menu-expand-text]");
 const filtersButton = document.querySelector("[data-filters-button]");
 const allTasksButton = document.querySelector("[data-all-tasks-button]");
 const todayTasksButton = document.querySelector("[data-today-button]");
@@ -34,26 +35,26 @@ menuButton.addEventListener("click", toggleNavBar);
 filtersButton.addEventListener("click", toggleFilters);
 
 allTasksButton.addEventListener("click", () => {
+  menuExpandText.textContent = "All Tasks";
   filterFlag[0] = "allTasks";
-  console.log(filterFlag[0]);
   renderFilteredTasks(constructedTaskLiList);
 });
 
 todayTasksButton.addEventListener("click", () => {
+  menuExpandText.textContent = "Today";
   filterFlag[0] = "todayTasks";
-  console.log(filterFlag[0]);
   renderFilteredTasks(todayTaskList);
 });
 
 tomorrowTasksButton.addEventListener("click", () => {
+  menuExpandText.textContent = "Tomorrow";
   filterFlag[0] = "tomorrowTasks";
-  console.log(filterFlag[0]);
   renderFilteredTasks(tomorrowTaskList);
 });
 
 monthTasksButton.addEventListener("click", () => {
+  menuExpandText.textContent = "This Month";
   filterFlag[0] = "monthTasks";
-  console.log(filterFlag[0]);
   renderFilteredTasks(monthTaskList);
 });
 
