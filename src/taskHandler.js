@@ -1,4 +1,4 @@
-import { modal, taskList, projectList, constructedTaskLiList } from "./index.js";
+import { modal, projectList, taskList } from "./index.js";
 import { setupProjectElements } from "./setupProjectElements.js";
 import { render } from "./render.js";
 import Task from "./Task.js";
@@ -19,15 +19,18 @@ const colorInput = document.querySelector("[data-new-color-input]");
 
 function handleTaskSubmission(event) {
   if (event.target.getAttribute("type") === SUBMIT && editFlag[0] === "true") {
-    submitEditedTask(editListTaskID);
+    const respectiveTask = submitEditedTask(editListTaskID);
+    const respectiveTaskProjectName =
+      respectiveTask.querySelector(".project-paragraph").textContent;
+    pushProjectToList(respectiveTaskProjectName);
     renderRespectiveFilterList();
     render();
     editFlag[0] = "false";
   } else if (event.target.getAttribute("type") === SUBMIT && editFlag[0] == "false") {
     const task = createTask();
-    taskList.push(task);
-    setupTaskElements(taskList);
+    setupTaskElements(task);
     pushProjectToList(task.project);
+    renderRespectiveFilterList();
     render();
     modal.close();
   } else {
@@ -37,30 +40,28 @@ function handleTaskSubmission(event) {
 }
 
 function createTask() {
-  const id = taskList.length;
-  const priorityInput = document.querySelector('input[name="priority"]:checked');
+  const priorityInput = document
+    .querySelector('input[name="priority"]:checked')
+    .getAttribute("data-value");
   const task = new Task(
     taskInput.value,
     noteInput.value,
     projectInput.value,
     dateInput.value,
-    priorityInput.value,
-    colorInput.value,
-    id
+    priorityInput,
+    colorInput.value
   );
   return task;
 }
 
 function pushProjectToList(project) {
-  if (projectList.includes(project)) return;
-  projectList.push(project);
+  const projectExists = projectList.some((item) => item.getAttribute("name") == project);
+  if (projectExists) return;
   setupProjectElements(project);
 }
 
 function submitEditedTask(taskID) {
-  const respectiveTask = constructedTaskLiList.find(
-    (task) => task.getAttribute("id") == taskID
-  );
+  const respectiveTask = taskList.find((task) => task.getAttribute("id") == taskID);
 
   const taskTitle = respectiveTask.getElementsByClassName("task-text")[0];
   const taskNote = respectiveTask.getElementsByClassName("note-paragraph")[0];
@@ -106,6 +107,7 @@ function submitEditedTask(taskID) {
     taskPriorityHigh.classList.add("priority-border");
   }
   modal.close();
+  return respectiveTask;
 }
 
 export { handleTaskSubmission };

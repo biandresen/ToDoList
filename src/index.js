@@ -2,7 +2,7 @@
 import "../src/assets/styles/style.css";
 import { handleTaskSubmission } from "./taskHandler.js";
 import { toggleNavBar, toggleProjectsMenu, toggleFilters } from "./eventFunctions.js";
-import { renderFilteredTasks } from "./render.js";
+import { renderFilteredTasks, resetForm } from "./render.js";
 
 //GET ELEMENTS
 const menuButton = document.querySelector("[data-menu-button]");
@@ -19,9 +19,7 @@ export const modal = document.querySelector("[data-modal]");
 
 //DECLARATION OF LISTS
 export const taskList = [];
-export const constructedTaskLiList = [];
 export const projectList = [];
-export const constructedProjectLiList = [];
 export const tasksSortedByProject = [];
 export const todayTaskList = [];
 export const tomorrowTaskList = [];
@@ -37,7 +35,7 @@ filtersButton.addEventListener("click", toggleFilters);
 allTasksButton.addEventListener("click", () => {
   menuExpandText.textContent = "All Tasks";
   filterFlag[0] = "allTasks";
-  renderFilteredTasks(constructedTaskLiList);
+  renderFilteredTasks(taskList);
 });
 
 todayTasksButton.addEventListener("click", () => {
@@ -61,6 +59,7 @@ monthTasksButton.addEventListener("click", () => {
 projectsButton.addEventListener("click", toggleProjectsMenu);
 
 newTaskButton.addEventListener("click", () => {
+  resetForm();
   modal.showModal();
 });
 

@@ -1,12 +1,13 @@
 //IMPORTS
 import createElement from "./createElement.js";
-import { constructedTaskLiList } from "./index.js";
+import { taskList } from "./index.js";
 import {
   toggleTaskInfo,
   editTask,
   deleteTask,
   handleTaskCheck,
 } from "./eventFunctions.js";
+import { getTodayDate } from "./render.js";
 
 //DECLARATIONS
 const LOW = "LOW";
@@ -14,12 +15,12 @@ const MED = "MED";
 const HIGH = "HIGH";
 /////////////////////////////////////////////////////////////////////
 
-function setupTaskElements(taskList) {
-  let newestTask = taskList.length - 1;
+function setupTaskElements(task) {
+  const id = taskList.length;
 
   //CREATE ELEMENTS
   const taskListItem = createElement("li", "task-list-item");
-  taskListItem.setAttribute("id", newestTask);
+  taskListItem.setAttribute("id", id);
   const divTaskHeader = createElement("div", "task-header");
   const divTaskField = createElement("div", "task-field");
   const iconUnchecked = createElement("i", "fa-solid");
@@ -75,28 +76,26 @@ function setupTaskElements(taskList) {
   colorInfoIcon.classList.add("fa-circle");
 
   //GIVE ELEMENTS VALUES
-  taskList[newestTask].title == ""
-    ? (taskText.textContent = "Task")
-    : (taskText.textContent = taskList[newestTask].title);
+  taskText.textContent = task.title;
   noteHeader.textContent = "Note";
-  taskList[newestTask].note == ""
-    ? (noteParagraph.textContent = "<description>")
-    : (noteParagraph.textContent = taskList[newestTask].note);
+  noteParagraph.textContent = task.note;
   projectHeader.textContent = "Project: ";
-  projectParagraph.textContent = taskList[newestTask].project;
+  projectParagraph.textContent = task.project;
   dueDateHeader.textContent = "Due Date: ";
-  dueDateParagraph.textContent = taskList[newestTask].date;
+  task.date == ""
+    ? (dueDateParagraph.textContent = getTodayDate())
+    : (dueDateParagraph.textContent = task.date);
   colorInfoHeader.textContent = "Color: ";
-  colorInfoIcon.style.color = taskList[newestTask].color;
-  iconUnchecked.style.color = taskList[newestTask].color;
-  iconChecked.style.color = taskList[newestTask].color;
+  colorInfoIcon.style.color = task.color;
+  iconUnchecked.style.color = task.color;
+  iconChecked.style.color = task.color;
   priorityHeader.textContent = "Priority: ";
   boxLowPriority.textContent = LOW;
   boxMedPriority.textContent = MED;
   boxHighPriority.textContent = HIGH;
-  if (taskList[newestTask].priority === LOW) {
+  if (task.priority === LOW) {
     boxLowPriority.classList.add("priority-border");
-  } else if (taskList[newestTask].priority === MED) {
+  } else if (task.priority === MED) {
     boxMedPriority.classList.add("priority-border");
   } else {
     boxHighPriority.classList.add("priority-border");
@@ -122,7 +121,7 @@ function setupTaskElements(taskList) {
   divPriorityBoxes.append(boxLowPriority, boxMedPriority, boxHighPriority);
   divColorInfo.append(colorInfoHeader, colorInfoIcon);
 
-  constructedTaskLiList.push(taskListItem);
+  taskList.push(taskListItem);
 
   //ADD EVENT LISTENERS
   taskExpandButton.addEventListener("click", () => {

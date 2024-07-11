@@ -3,10 +3,8 @@ import {
   menuExpandText,
   filterFlag,
   taskList,
-  constructedTaskLiList,
-  constructedProjectLiList,
-  tasksSortedByProject,
   projectList,
+  tasksSortedByProject,
   todayTaskList,
   tomorrowTaskList,
   monthTaskList,
@@ -19,6 +17,15 @@ const allTasksAmount = document.querySelector("[data-all-tasks-number]");
 const todayAmount = document.querySelector("[data-today-number]");
 const tomorrowAmount = document.querySelector("[data-tomorrow-number]");
 const monthAmount = document.querySelector("[data-month-number]");
+
+function resetForm() {
+  const inputs = document.querySelectorAll(
+    "[data-new-task-form] input, [data-new-task-form] textarea"
+  );
+  inputs.forEach((input) => {
+    input.value = "";
+  });
+}
 
 function render() {
   getAmountOfTasksInProjects();
@@ -47,7 +54,7 @@ function getTodayDate() {
 }
 
 function getTodayAmount() {
-  constructedTaskLiList.forEach((listItem) => {
+  taskList.forEach((listItem) => {
     let respectiveDate =
       listItem.childNodes[1].childNodes[1].childNodes[1].childNodes[1].textContent;
     if (!todayTaskList.includes(listItem) && respectiveDate === todayDate) {
@@ -58,7 +65,7 @@ function getTodayAmount() {
 }
 
 function getTomorrowAmount() {
-  constructedTaskLiList.forEach((listItem) => {
+  taskList.forEach((listItem) => {
     let respectiveDate =
       listItem.childNodes[1].childNodes[1].childNodes[1].childNodes[1].textContent;
     let [, , respectiveDay] = respectiveDate.split("-");
@@ -73,7 +80,7 @@ function getTomorrowAmount() {
 }
 
 function getMonthAmount() {
-  constructedTaskLiList.forEach((listItem) => {
+  taskList.forEach((listItem) => {
     let respectiveDate =
       listItem.childNodes[1].childNodes[1].childNodes[1].childNodes[1].textContent;
     let [, respectiveMonth] = respectiveDate.split("-");
@@ -97,27 +104,30 @@ function renderProjectsToUI() {
   const projectsUl = document.querySelector("[data-projects-list]");
   projectsUl.innerHTML = "";
 
-  constructedProjectLiList.forEach((listItem) => {
-    const id = listItem.id;
-    if (listItem.querySelector(".project-span-h4").textContent == 0) {
-      constructedProjectLiList.splice(id, 1);
+  projectList.forEach((project) => {
+    const id = project.getAttribute("id");
+    if (project.querySelector(".project-span-h4").textContent == 0) {
+      projectList.splice(id, 1);
     }
   });
-  projectsUl.append(...constructedProjectLiList);
+  projectsUl.append(...projectList);
 }
 
 function getAmountOfTasksInProjects() {
-  projectList.forEach((project) => {
+  projectList.forEach((item) => {
+    let projectName = item.getAttribute("name");
     let amount = 0;
     for (let i = 0; i < taskList.length; i++) {
-      if (taskList[i].project === project) amount++;
-    }
-    constructedProjectLiList.forEach((listItem) => {
-      if (listItem.getAttribute("name") === project) {
-        listItem.querySelector(".project-span-h4").textContent = amount;
+      if (
+        taskList[i].getElementsByClassName("project-paragraph")[0].innerText ===
+        projectName
+      ) {
+        amount++;
       }
-      if (amount <= 0) {
-        listItem.remove();
+    }
+    projectList.forEach((project) => {
+      if (project.getAttribute("name") === projectName) {
+        project.querySelector(".project-span-h4").textContent = amount;
       }
     });
   });
@@ -125,7 +135,7 @@ function getAmountOfTasksInProjects() {
 
 function renderProjectTasks(event) {
   const targetProjectName = event.target.textContent;
-  constructedTaskLiList.forEach((task) => {
+  taskList.forEach((task) => {
     if (
       task.childNodes[1].childNodes[1].childNodes[0].childNodes[1].textContent ==
       targetProjectName
@@ -142,7 +152,7 @@ function setupProjectFilterList(event) {
   filterFlag[0] = "project";
   const projectName = event.target.textContent;
   menuExpandText.textContent = projectName;
-  constructedTaskLiList.forEach((task) => {
+  taskList.forEach((task) => {
     if (
       task.childNodes[1].childNodes[1].childNodes[0].childNodes[1].textContent ==
       projectName
@@ -159,4 +169,6 @@ export {
   renderProjectTasks,
   renderListItemListsToUI,
   setupProjectFilterList,
+  getTodayDate,
+  resetForm,
 };

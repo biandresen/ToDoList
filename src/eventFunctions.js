@@ -2,7 +2,6 @@ import {
   todayTaskList,
   tomorrowTaskList,
   monthTaskList,
-  constructedTaskLiList,
   taskList,
   tasksSortedByProject,
 } from "./index.js";
@@ -55,7 +54,7 @@ function editTask(event) {
     event.target.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute(
       "id"
     );
-  const respectiveTask = constructedTaskLiList.find(
+  const respectiveTask = taskList.find(
     (task) => task.getAttribute("id") == editListTaskID
   );
 
@@ -66,7 +65,7 @@ function editTask(event) {
   const taskColor = respectiveTask.getElementsByClassName("color-info-icon")[0];
   const taskPriorityLow = respectiveTask.getElementsByClassName("low-priority-box")[0];
   const taskPriorityMed = respectiveTask.getElementsByClassName("med-priority-box")[0];
-  const taskPriorityHigh = respectiveTask.getElementsByClassName("high-priority-box")[0];
+  // const taskPriorityHigh = respectiveTask.getElementsByClassName("high-priority-box")[0];
 
   const formTaskTitle = taskForm[0];
   const formTaskNote = taskForm[1];
@@ -77,10 +76,6 @@ function editTask(event) {
   const formTaskPriorityMed = taskForm[6];
   const formTaskPriorityHigh = taskForm[7];
 
-  console.log(formTaskPriorityLow);
-  console.log(taskPriorityLow);
-  console.log(taskPriorityMed);
-  console.log(taskPriorityHigh);
   formTaskTitle.setAttribute("value", taskTitle.textContent);
   formTaskNote.setAttribute("value", taskNote.textContent);
   formTaskProjectName.setAttribute("value", taskProjectName.textContent);
@@ -100,8 +95,8 @@ function deleteTask(event) {
     event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
   const respectiveListItemId = respectiveListItem.getAttribute("id");
 
-  //Find the id in allTasksList/constructedTaskLiList
-  const indexMatchingTheId = constructedTaskLiList.findIndex(
+  //Find the id in allTasksList/taskList
+  const indexMatchingTheId = taskList.findIndex(
     (item) => item.id === respectiveListItemId
   );
   //Find the id in todayTaskList
@@ -122,7 +117,6 @@ function deleteTask(event) {
   );
 
   //delete/update all filtered lists so the respective deleted task is removed from all lists
-  constructedTaskLiList.splice(indexMatchingTheId, 1);
   taskList.splice(indexMatchingTheId, 1);
   todayTaskList.splice(indexMatchingTheIdInTodayTaskList, 1);
   tomorrowTaskList.splice(indexMatchingTheIdInTomorrowTaskList, 1);
@@ -135,7 +129,7 @@ function deleteTask(event) {
 
 function renderRespectiveFilterList() {
   if (filterFlag[0] == "allTasks") {
-    renderListItemListsToUI(constructedTaskLiList);
+    renderListItemListsToUI(taskList);
   } else if (filterFlag[0] == "todayTasks") {
     renderListItemListsToUI(todayTaskList);
   } else if (filterFlag[0] == "tomorrowTasks") {
