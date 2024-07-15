@@ -22,6 +22,7 @@ function setupTaskElements(task) {
   const taskListItem = createElement("li", "task-list-item");
   taskListItem.setAttribute("id", id);
   const divTaskHeader = createElement("div", "task-header");
+  const divTaskPriorityColor = createElement("div", "task-priority-color");
   const divTaskField = createElement("div", "task-field");
   const iconUnchecked = createElement("i", "fa-solid");
   iconUnchecked.classList.add("fa-circle");
@@ -95,15 +96,18 @@ function setupTaskElements(task) {
   boxHighPriority.textContent = HIGH;
   if (task.priority === LOW) {
     boxLowPriority.classList.add("priority-border");
+    divTaskPriorityColor.classList.add("low");
   } else if (task.priority === MED) {
     boxMedPriority.classList.add("priority-border");
+    divTaskPriorityColor.classList.add("med");
   } else {
     boxHighPriority.classList.add("priority-border");
+    divTaskPriorityColor.classList.add("high");
   }
 
   //APPEND ELEMENTS
   taskListItem.append(divTaskHeader, divTaskInfoArea);
-  divTaskHeader.append(divTaskField, divBoxButtons);
+  divTaskHeader.append(divTaskPriorityColor, divTaskField, divBoxButtons);
   divTaskField.append(iconUnchecked, iconChecked, taskText);
   divBoxButtons.append(taskExpandButton, divEdit, divDelete);
   taskExpandButton.append(taskExpandIcon);

@@ -63,6 +63,8 @@ function pushProjectToList(project) {
 function submitEditedTask(taskID) {
   const respectiveTask = taskList.find((task) => task.getAttribute("id") == taskID);
 
+  const priorityColorField =
+    respectiveTask.getElementsByClassName("task-priority-color")[0];
   const taskTitle = respectiveTask.getElementsByClassName("task-text")[0];
   const taskNote = respectiveTask.getElementsByClassName("note-paragraph")[0];
   const taskProjectName = respectiveTask.getElementsByClassName("project-paragraph")[0];
@@ -101,13 +103,25 @@ function submitEditedTask(taskID) {
 
   if (formTaskPriorityLow.checked == true) {
     taskPriorityLow.classList.add("priority-border");
+    resetPriorityColor(priorityColorField);
+    priorityColorField.classList.add("low");
   } else if (formTaskPriorityMed.checked == true) {
     taskPriorityMed.classList.add("priority-border");
+    resetPriorityColor(priorityColorField);
+    priorityColorField.classList.add("med");
   } else {
     taskPriorityHigh.classList.add("priority-border");
+    resetPriorityColor(priorityColorField);
+    priorityColorField.classList.add("high");
   }
   modal.close();
   return respectiveTask;
+}
+
+function resetPriorityColor(priorityColorField) {
+  priorityColorField.classList.remove("low");
+  priorityColorField.classList.remove("med");
+  priorityColorField.classList.remove("high");
 }
 
 export { handleTaskSubmission };

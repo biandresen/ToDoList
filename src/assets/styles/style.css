@@ -234,10 +234,25 @@ h4 {
   align-items: center;
   padding: 8px 0;
 }
+.task-priority-color {
+  position: absolute;
+  width: 10px;
+  height: 5%;
+  border-radius: 3px;
+}
+.task-priority-color.low {
+  background-color: var(--success-color);
+}
+.task-priority-color.med {
+  background-color: var(--warning-color);
+}
+.task-priority-color.high {
+  background-color: var(--error-color);
+}
 .task-field {
   cursor: pointer;
   display: flex;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 .task-text {
   align-self: center;
@@ -549,7 +564,6 @@ h4 {
   position: sticky;
   height: 100px;
 }
-
 .priority-border {
   border: 3px solid black;
 }
