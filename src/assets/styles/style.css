@@ -26,12 +26,12 @@ input {
   --background-color: #26355d;
   --primary-color: #ff8f00;
   --primary-faded: hsla(34, 100%, 45%, 1);
-  --secondary-color: #af47d2;
+  --secondary-color: hsla(34, 100%, 45%, 1);
   --detail-color: #ffdb00;
+  --text-color: white;
   --success-color: #0a6847;
   --warning-color: #e6c700;
   --error-color: #b31312;
-  --text-color: white;
   --box-shadow: 0px 5px 5px rgb(73, 73, 73);
   --box-shadow-top: 0px 0px 5px 5px rgb(73, 73, 73);
   --text-shadow: 0px 2px 2px rgb(73, 73, 73);
@@ -47,13 +47,17 @@ html {
 }
 body {
   height: 100vh;
-  height: 89svh;
+  height: 100svh;
   /* height: 100dvh; */
   /* height: 100%; */
   /* width: 100%; */
   background: var(--background-color);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.9fr 0.1fr;
 }
 .container {
+  grid-row: 1 / 2;
   height: 100%;
   width: 100%;
   position: relative;
@@ -69,7 +73,7 @@ body {
   grid-row: 1 / 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  box-shadow: 0px 5px 5px rgb(73, 73, 73);
+  box-shadow: var(--box-shadow);
   z-index: 10;
 }
 .profile-area {
@@ -112,7 +116,7 @@ body {
   align-items: end;
 }
 .app-name {
-  color: var(--background-color);
+  color: var(--detail-color);
   font: var(--text-title);
   font-weight: 1000;
   letter-spacing: 0.5px;
@@ -153,6 +157,7 @@ body {
   border: none;
   font: var(--text-title);
   font-weight: 800;
+  text-decoration: underline;
 }
 .filters,
 .projects {
@@ -253,7 +258,7 @@ h4 {
 .task-text {
   align-self: center;
   width: 110px;
-  overflow: scroll;
+  overflow: auto;
 }
 .check-box-unchecked {
   align-self: center;
@@ -358,7 +363,7 @@ h4 {
   margin: 10px 20px 10px 20px;
   padding-bottom: 5px;
   box-shadow: var(--box-shadow);
-  overflow: scroll;
+  overflow: auto;
   text-wrap: wrap;
   max-width: 320px;
 }
@@ -428,8 +433,8 @@ h4 {
 }
 .new-task-button {
   position: fixed;
-  left: 20px;
-  bottom: 20px;
+  right: 20px;
+  bottom: 90px;
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -453,7 +458,7 @@ h4 {
   margin: auto;
   background: var(--primary-color);
   border-color: var(--detail-color);
-  border-radius: 5px;
+  border-radius: 15px;
 }
 .modal-content {
   padding: 15px 0 0 8px;
@@ -497,8 +502,9 @@ h4 {
   color: var(--text-color);
   font: var(--text-small);
   width: 145px;
-  border-radius: 5px;
+  border-radius: 7px;
   margin: 5px 0 10px 0;
+  text-indent: 6px;
 }
 .new-note-area {
   height: 100%;
@@ -511,9 +517,10 @@ h4 {
   background: transparent;
   border-color: transparent;
   width: 25px;
+  margin-top: 10px;
 }
 .new-priority-area {
-  margin-top: 10px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
 }
@@ -524,7 +531,7 @@ h4 {
   width: 40px;
   height: 20px;
   padding-top: 2px;
-  margin: 0 10px 0 0;
+  margin: 5px 10px 0 0;
   color: var(--text-color);
   font-size: 13px;
   font-weight: 800;
@@ -532,6 +539,8 @@ h4 {
 }
 .priority-input:checked {
   border: 2px solid black;
+  transform: scale(1.1);
+  padding-bottom: 17px;
 }
 .new-priority-input-low {
   background: var(--success-color);
@@ -559,6 +568,7 @@ h4 {
 }
 .new-task-cancel,
 .new-task-create {
+  margin-top: 10px;
   cursor: pointer;
   background: transparent;
   border-color: transparent;
@@ -569,11 +579,39 @@ h4 {
 }
 .footer {
   background: var(--primary-color);
-  grid-row: 3 / 4;
+  color: var(--text-color);
+  grid-row: 2 / 3;
   position: sticky;
-  height: 102px;
-  box-shadow: 0px 0px 5px 5px rgb(73, 73, 73);
+  height: 100%;
+  box-shadow: var(--box-shadow-top);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 10px;
+}
+.color-theme {
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  border-style: none;
+  font-weight: 800;
+  color: var(--background-color);
+  background: var(--detail-color);
+  transition: transform 0.3s ease-in-out;
+}
+.color-theme:hover {
+  transform: scale(1.1);
 }
 .priority-border {
   border: 3px solid black;
+}
+.fa-github {
+  color: var(--background-color);
+  font-size: 25px;
+  margin: 0 0 0 5px;
+  transition: transform 0.3s ease-in-out;
+}
+.fa-github:hover {
+  transform: scale(1.2);
 }
