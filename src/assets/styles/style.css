@@ -108,16 +108,14 @@ body {
 .app-name-area {
   display: flex;
   flex-direction: column;
+  align-items: end;
 }
 .app-name {
   color: var(--background-color);
   font: var(--text-title);
   font-weight: 1000;
   letter-spacing: 0.5px;
-  margin-left: 30px;
-  margin-top: 10px;
-  position: relative;
-  top: 10px;
+  margin: 20px 20px 0 0;
 }
 .menu-button {
   cursor: pointer;
@@ -126,10 +124,7 @@ body {
   background: transparent;
   font-weight: 800;
   font-size: 12px;
-  margin-bottom: 15px;
-  position: relative;
-  top: 8px;
-  left: -5px;
+  margin: 0 20px 10px 0;
 }
 .menu-expand-text {
   margin: 0 5px 0 0;
@@ -463,9 +458,17 @@ h4 {
   padding: 15px 0 0 8px;
   color: var(--text-color);
 }
+.new-task-area,
+.new-project-area,
+.new-note-area,
+.new-date-area {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
 .new-task-form {
   width: 86vw;
-  height: 36vh;
+  height: 45vh;
   display: grid;
   overflow-y: hidden;
   display: flex;
@@ -483,7 +486,6 @@ h4 {
   font: var(--text-body);
   font-weight: 800;
   text-shadow: var(--text-shadow);
-  padding-bottom: 5px;
 }
 .new-task-input,
 .new-project-input,
