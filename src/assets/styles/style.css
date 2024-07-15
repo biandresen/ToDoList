@@ -230,14 +230,14 @@ h4 {
 }
 .task-header {
   display: flex;
-  gap: 80px;
+  justify-content: space-between;
   align-items: center;
   padding: 8px 0;
 }
 .task-priority-color {
   position: absolute;
   width: 10px;
-  height: 5%;
+  height: 6.2%;
   border-radius: 3px;
 }
 .task-priority-color.low {
@@ -256,6 +256,8 @@ h4 {
 }
 .task-text {
   align-self: center;
+  width: 110px;
+  overflow: scroll;
 }
 .check-box-unchecked {
   align-self: center;
@@ -283,9 +285,9 @@ h4 {
 }
 .task-box-buttons {
   position: relative;
-  /* left: 180px; */
   display: flex;
-  gap: 50px;
+  gap: 45px;
+  margin-right: 20px;
 }
 .expand-button {
   display: flex;
