@@ -362,6 +362,9 @@ h4 {
   margin: 10px 20px 10px 20px;
   padding-bottom: 5px;
   box-shadow: var(--box-shadow);
+  overflow: scroll;
+  text-wrap: wrap;
+  max-width: 320px;
 }
 .note-header,
 .project-header,
@@ -498,7 +501,7 @@ h4 {
   height: 100%;
 }
 .new-note-input {
-  text-wrap: wrap;
+  overflow: hidden;
   height: 65%;
 }
 .new-color-input {

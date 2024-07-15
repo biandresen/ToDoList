@@ -77,7 +77,7 @@ function editTask(event) {
   const formTaskPriorityHigh = taskForm[7];
 
   formTaskTitle.setAttribute("value", taskTitle.textContent);
-  formTaskNote.setAttribute("value", taskNote.textContent);
+  formTaskNote.textContent = taskNote.textContent;
   formTaskProjectName.setAttribute("value", taskProjectName.textContent);
   formTaskDate.setAttribute("value", taskDate.textContent);
   formTaskColor.setAttribute("value", taskColor.style.color);
