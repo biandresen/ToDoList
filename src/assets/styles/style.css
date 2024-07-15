@@ -33,6 +33,7 @@ input {
   --error-color: #b31312;
   --text-color: white;
   --box-shadow: 0px 5px 5px rgb(73, 73, 73);
+  --box-shadow-top: 0px 0px 5px 5px rgb(73, 73, 73);
   --text-shadow: 0px 2px 2px rgb(73, 73, 73);
   --main-font: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   --text-title: 24px bold;
@@ -46,9 +47,9 @@ html {
 }
 body {
   height: 100vh;
-  height: 100svh;
+  height: 89svh;
   /* height: 100dvh; */
-  height: 100%;
+  /* height: 100%; */
   /* width: 100%; */
   background: var(--background-color);
 }
@@ -137,7 +138,7 @@ body {
   grid-row: 2 / 3;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 109%;
 }
 .filter-area {
   margin-top: 15px;
@@ -232,7 +233,7 @@ h4 {
 .task-priority-color {
   position: absolute;
   width: 10px;
-  height: 6.2%;
+  height: 40px;
   border-radius: 3px;
 }
 .task-priority-color.low {
@@ -427,8 +428,8 @@ h4 {
 }
 .new-task-button {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  left: 20px;
+  bottom: 20px;
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -567,10 +568,11 @@ h4 {
   text-decoration: underline;
 }
 .footer {
-  background: var(--secondary-color);
-  /* grid-row: 3 / 4; */
+  background: var(--primary-color);
+  grid-row: 3 / 4;
   position: sticky;
-  height: 100px;
+  height: 102px;
+  box-shadow: 0px 0px 5px 5px rgb(73, 73, 73);
 }
 .priority-border {
   border: 3px solid black;
