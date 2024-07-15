@@ -230,7 +230,7 @@ h4 {
 }
 .task-header {
   display: flex;
-  gap: 50px;
+  gap: 80px;
   align-items: center;
   padding: 8px 0;
 }
@@ -282,10 +282,10 @@ h4 {
   text-decoration: line-through;
 }
 .task-box-buttons {
-  position: fixed;
-  left: 155px;
+  position: relative;
+  /* left: 180px; */
   display: flex;
-  gap: 60px;
+  gap: 50px;
 }
 .expand-button {
   display: flex;
@@ -330,6 +330,7 @@ h4 {
 }
 .delete-expand-icon {
   display: flex;
+  width: 10px;
 }
 .delete-expand-icon::after {
   content: "Delete";
