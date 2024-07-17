@@ -6,44 +6,53 @@ import {
   tasksSortedByProject,
 } from "./index.js";
 import { render, renderListItemListsToUI } from "./render.js";
-import { filterFlag, modal } from "./index.js";
+import { filterFlag, modal, theme } from "./index.js";
 import { taskForm } from "./taskHandler.js";
-import { saveData } from "./localStorage.js";
+import { saveData, saveTheme } from "./localStorage.js";
 export const editFlag = ["false"];
 export let editListTaskID = 0;
 const themeButton = document.querySelector("[data-theme-button]");
+const root = document.documentElement;
 
 themeButton.addEventListener("click", changeTheme);
 
 function changeTheme() {
-  const root = document.documentElement;
   if (root.style.getPropertyValue("--primary-color") === "#161B22") {
-    //Normal color
-    root.style.setProperty("--primary-color", "#ff8f00");
-    root.style.setProperty("--primary-faded", "hsla(34, 100%, 45%, 1)");
-    root.style.setProperty("--secondary-color", "#af47d2");
-    root.style.setProperty("--detail-color", "#ffdb00");
-    root.style.setProperty("--text-color", "white");
-    root.style.setProperty("--background-color", "#26355d");
-    root.style.setProperty("--success-color", "#0a6847");
-    root.style.setProperty("--warning-color", "#e6c700");
-    root.style.setProperty("--error-color", "#b31312");
-    root.style.setProperty("--box-shadow", "0px 5px 5px rgb(73, 73, 73)");
-    root.style.setProperty("--box-shadow-top", "0px 0px 5px 5px rgb(73, 73, 73)");
+    theme[0] = "normal";
+    setNormalTheme();
   } else {
-    //Dark color
-    root.style.setProperty("--primary-color", "#161B22");
-    root.style.setProperty("--primary-faded", "#0D1117");
-    root.style.setProperty("--secondary-color", "#0D1117");
-    root.style.setProperty("--detail-color", "#FF7B72");
-    root.style.setProperty("--text-color", "#FFA657");
-    root.style.setProperty("--background-color", "#443b3e");
-    root.style.setProperty("--success-color", "#014421");
-    root.style.setProperty("--warning-color", "#594D50");
-    root.style.setProperty("--error-color", "#b31312");
-    root.style.setProperty("--box-shadow", "0px 5px 5px black");
-    root.style.setProperty("--box-shadow-top", "0px 0px 5px 5px black");
+    theme[0] = "dark";
+    setDarkTheme();
   }
+  saveTheme();
+}
+
+function setNormalTheme() {
+  root.style.setProperty("--primary-color", "#ff8f00");
+  root.style.setProperty("--primary-faded", "hsla(34, 100%, 45%, 1)");
+  root.style.setProperty("--secondary-color", "#af47d2");
+  root.style.setProperty("--detail-color", "#ffdb00");
+  root.style.setProperty("--text-color", "white");
+  root.style.setProperty("--background-color", "#26355d");
+  root.style.setProperty("--success-color", "#0a6847");
+  root.style.setProperty("--warning-color", "#e6c700");
+  root.style.setProperty("--error-color", "#b31312");
+  root.style.setProperty("--box-shadow", "0px 5px 5px rgb(73, 73, 73)");
+  root.style.setProperty("--box-shadow-top", "0px 0px 5px 5px rgb(73, 73, 73)");
+}
+
+function setDarkTheme() {
+  root.style.setProperty("--primary-color", "#161B22");
+  root.style.setProperty("--primary-faded", "#0D1117");
+  root.style.setProperty("--secondary-color", "#0D1117");
+  root.style.setProperty("--detail-color", "#FF7B72");
+  root.style.setProperty("--text-color", "#FFA657");
+  root.style.setProperty("--background-color", "#443b3e");
+  root.style.setProperty("--success-color", "#014421");
+  root.style.setProperty("--warning-color", "#594D50");
+  root.style.setProperty("--error-color", "#b31312");
+  root.style.setProperty("--box-shadow", "0px 5px 5px black");
+  root.style.setProperty("--box-shadow-top", "0px 0px 5px 5px black");
 }
 
 function toggleNavBar() {
@@ -184,4 +193,7 @@ export {
   toggleNavBar,
   toggleProjectsMenu,
   toggleFilters,
+  changeTheme,
+  setNormalTheme,
+  setDarkTheme,
 };

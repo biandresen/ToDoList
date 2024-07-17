@@ -1,4 +1,5 @@
-import { taskUnorderedList } from "./index.js";
+import { taskUnorderedList, theme } from "./index.js";
+import { setDarkTheme, setNormalTheme } from "./eventFunctions.js";
 
 function saveData() {
   const taskTitles = [];
@@ -73,4 +74,15 @@ function loadData() {
   };
 }
 
-export { saveData, loadData };
+function saveTheme() {
+  localStorage.setItem("theme", JSON.stringify(theme[0]));
+}
+
+function loadTheme() {
+  theme[0] = JSON.parse(localStorage.getItem("theme"));
+  if (theme[0] == "dark") {
+    setDarkTheme();
+  } else setNormalTheme();
+}
+
+export { saveData, loadData, saveTheme, loadTheme };

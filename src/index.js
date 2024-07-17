@@ -13,7 +13,7 @@ import {
   renderRespectiveFilterList,
 } from "./eventFunctions.js";
 import { renderFilteredTasks, resetForm, render } from "./render.js";
-import { loadData, saveData } from "./localStorage.js";
+import { loadData, saveData, loadTheme } from "./localStorage.js";
 import setupTaskElements from "./setupTaskElements.js";
 
 //GET ELEMENTS
@@ -38,9 +38,11 @@ export const tomorrowTaskList = [];
 export const monthTaskList = [];
 export const tasksMatchingProjectName = [];
 export const filterFlag = ["allTasks"];
+export const theme = ["normal"];
 export const taskUnorderedList = document.querySelector("[data-task-list]");
 
 document.addEventListener("DOMContentLoaded", () => {
+  loadTheme();
   if (loadData().getTitles().length >= 1) {
     const num = loadData().getTitles().length;
     console.log(num);
