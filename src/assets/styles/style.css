@@ -433,7 +433,7 @@ h4 {
 .new-task-button {
   position: fixed;
   right: 20px;
-  bottom: 90px;
+  bottom: 13%;
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -716,5 +716,12 @@ h4 {
   .new-task-cancel,
   .new-task-create {
     font-size: 1.3rem;
+  }
+  .new-task-button {
+    left: 50%;
+    bottom: 8%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
   }
 }
