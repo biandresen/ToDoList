@@ -1,8 +1,20 @@
 //IMPORTS
 import "../src/assets/styles/style.css";
-import { handleTaskSubmission } from "./taskHandler.js";
-import { toggleNavBar, toggleProjectsMenu, toggleFilters } from "./eventFunctions.js";
-import { renderFilteredTasks, resetForm } from "./render.js";
+import {
+  handleTaskSubmission,
+  loadFromStorage,
+  createTask,
+  pushProjectToList,
+} from "./taskHandler.js";
+import {
+  toggleNavBar,
+  toggleProjectsMenu,
+  toggleFilters,
+  renderRespectiveFilterList,
+} from "./eventFunctions.js";
+import { renderFilteredTasks, resetForm, render } from "./render.js";
+import { loadData, saveData } from "./localStorage.js";
+import setupTaskElements from "./setupTaskElements.js";
 
 //GET ELEMENTS
 const menuButton = document.querySelector("[data-menu-button]");
@@ -26,6 +38,26 @@ export const tomorrowTaskList = [];
 export const monthTaskList = [];
 export const tasksMatchingProjectName = [];
 export const filterFlag = ["allTasks"];
+export const taskUnorderedList = document.querySelector("[data-task-list]");
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (loadData().getTitles().length >= 1) {
+    const num = loadData().getTitles().length;
+    console.log(num);
+    loadFromStorage[0] = "true";
+    for (let i = 0; i < num; i++) {
+      console.log(i);
+      const task = createTask(i);
+      setupTaskElements(task);
+      console.log(task);
+      pushProjectToList(task.project);
+      renderRespectiveFilterList();
+      render();
+    }
+    loadFromStorage[0] = "false";
+    saveData();
+  }
+});
 
 //DECLARATION OF EVENT LISTENERS
 menuButton.addEventListener("click", toggleNavBar);

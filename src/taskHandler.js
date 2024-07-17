@@ -8,6 +8,7 @@ import {
   editListTaskID,
   renderRespectiveFilterList,
 } from "./eventFunctions.js";
+import { loadData, saveData } from "./localStorage.js";
 
 const SUBMIT = "submit";
 export const taskForm = document.querySelector("[data-new-task-form]");
@@ -16,6 +17,7 @@ const noteInput = document.querySelector("[data-new-note-input]");
 const projectInput = document.querySelector("[data-new-project-input]");
 const dateInput = document.querySelector("[data-new-date-input]");
 const colorInput = document.querySelector("[data-new-color-input]");
+export const loadFromStorage = ["false"];
 
 function handleTaskSubmission(event) {
   if (event.target.getAttribute("type") === SUBMIT && editFlag[0] === "true") {
@@ -25,6 +27,7 @@ function handleTaskSubmission(event) {
     pushProjectToList(respectiveTaskProjectName);
     renderRespectiveFilterList();
     render();
+    saveData();
     editFlag[0] = "false";
   } else if (event.target.getAttribute("type") === SUBMIT && editFlag[0] == "false") {
     const task = createTask();
@@ -32,6 +35,7 @@ function handleTaskSubmission(event) {
     pushProjectToList(task.project);
     renderRespectiveFilterList();
     render();
+    saveData();
     modal.close();
   } else {
     modal.close();
@@ -39,18 +43,31 @@ function handleTaskSubmission(event) {
   taskForm.reset();
 }
 
-function createTask() {
-  const priorityInput = document
-    .querySelector('input[name="priority"]:checked')
-    .getAttribute("data-value");
-  const task = new Task(
-    taskInput.value,
-    noteInput.value,
-    projectInput.value,
-    dateInput.value,
-    priorityInput,
-    colorInput.value
-  );
+function createTask(num) {
+  let task;
+  if (loadFromStorage[0] === "true") {
+    task = new Task(
+      loadData().getTitles()[num],
+      loadData().getNotes()[num],
+      loadData().getProjects()[num],
+      loadData().getDates()[num],
+      loadData().getPriorities()[num],
+      loadData().getColors()[num]
+    );
+  } else {
+    const priorityInput = document
+      .querySelector('input[name="priority"]:checked')
+      .getAttribute("data-value");
+    task = new Task(
+      taskInput.value,
+      noteInput.value,
+      projectInput.value,
+      dateInput.value,
+      priorityInput,
+      colorInput.value
+    );
+  }
+
   return task;
 }
 
@@ -124,4 +141,4 @@ function resetPriorityColor(priorityColorField) {
   priorityColorField.classList.remove("high");
 }
 
-export { handleTaskSubmission };
+export { handleTaskSubmission, createTask, pushProjectToList };

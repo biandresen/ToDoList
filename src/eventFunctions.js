@@ -8,6 +8,7 @@ import {
 import { render, renderListItemListsToUI } from "./render.js";
 import { filterFlag, modal } from "./index.js";
 import { taskForm } from "./taskHandler.js";
+import { saveData } from "./localStorage.js";
 export const editFlag = ["false"];
 export let editListTaskID = 0;
 const themeButton = document.querySelector("[data-theme-button]");
@@ -157,6 +158,7 @@ function deleteTask(event) {
 
   renderRespectiveFilterList();
   render();
+  saveData();
 }
 
 function renderRespectiveFilterList() {
