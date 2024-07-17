@@ -204,7 +204,6 @@ h4 {
 .content-area {
   display: none;
   grid-template-rows: 1fr;
-  background-color: #fff;
 }
 .content-area.hide {
   display: grid;
@@ -459,10 +458,16 @@ h4 {
   background: var(--primary-color);
   border-color: var(--detail-color);
   border-radius: 15px;
+  overflow: hidden;
 }
 .modal-content {
   padding: 15px 0 0 8px;
   color: var(--text-color);
+  width: 100%;
+}
+.form-left-side,
+.form-right-side {
+  flex: 1;
 }
 .new-task-area,
 .new-project-area,
@@ -505,6 +510,8 @@ h4 {
   border-radius: 7px;
   margin: 5px 0 10px 0;
   text-indent: 6px;
+  border: none;
+  width: 90%;
 }
 .new-note-area {
   height: 100%;
@@ -513,11 +520,17 @@ h4 {
   overflow: hidden;
   height: 65%;
 }
+.new-color-area {
+  display: flex;
+  align-items: center;
+}
 .new-color-input {
   background: transparent;
   border-color: transparent;
-  width: 25px;
   margin-top: 10px;
+  margin-left: 10px;
+  height: 30px;
+  width: 30px;
 }
 .new-priority-area {
   margin-top: 25px;
@@ -528,7 +541,6 @@ h4 {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 5px;
-  width: 40px;
   height: 20px;
   padding-top: 2px;
   margin: 5px 10px 0 0;
@@ -536,6 +548,8 @@ h4 {
   font-size: 13px;
   font-weight: 800;
   cursor: pointer;
+  width: 25%;
+  text-align: center;
 }
 .priority-input:checked {
   border: 2px solid black;
@@ -564,7 +578,10 @@ h4 {
   margin-left: 3px;
 }
 .new-task-submit-area {
-  margin-top: 15px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: start;
+  gap: 10px;
 }
 .new-task-cancel,
 .new-task-create {
@@ -574,6 +591,7 @@ h4 {
   border-color: transparent;
   color: var(--text-color);
   font: var(--text-body);
+  font-size: 1.05rem;
   font-weight: 800;
   text-decoration: underline;
 }
@@ -614,4 +632,89 @@ h4 {
 }
 .fa-github:hover {
   transform: scale(1.2);
+}
+
+@media (min-width: 1000px) {
+  .container {
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    grid-template-rows: 0.1fr 0.9fr;
+  }
+  .header {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+  }
+  .profile-area {
+    grid-column: 1 / 2;
+  }
+  .app-name-area {
+    grid-column: 2 / 3;
+    align-items: start;
+  }
+  .nav {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    display: block;
+    box-shadow: var(--box-shadow);
+  }
+  .content-area {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    width: 100%;
+    display: block;
+    justify-self: end;
+  }
+  .modal {
+    width: 43vw;
+    padding: 10px;
+    overflow: hidden;
+  }
+  .modal-content {
+    width: 40vw;
+  }
+  .new-task-form {
+    width: 100%;
+  }
+  .form-left-side,
+  .form-right-side {
+    flex: 1;
+  }
+  .new-task-area,
+  .new-project-area,
+  .new-note-area,
+  .new-date-area {
+    width: 100%;
+  }
+  .new-task-input,
+  .new-project-input,
+  .new-note-input,
+  .new-date-input {
+    width: 90%;
+    margin-bottom: 20px;
+    min-height: 30px;
+    font-size: 1.2rem;
+  }
+  .new-note-area {
+    max-height: 95%;
+  }
+  .new-color-input {
+    margin-left: 20px;
+    height: 40px;
+    width: 40px;
+  }
+  .priority-input {
+    width: 25%;
+    text-align: center;
+  }
+  .new-task-submit-area {
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+  }
+  .new-task-cancel,
+  .new-task-create {
+    font-size: 1.3rem;
+  }
 }

@@ -56,13 +56,24 @@ function setDarkTheme() {
 }
 
 function toggleNavBar() {
-  const navBar = document.querySelector("[data-nav]");
-  navBar.classList.toggle("hide");
-  const contentArea = document.querySelector("[data-content-area]");
-  contentArea.classList.toggle("hide");
-  const menuExpandIcon = document.querySelector("[data-menu-expand]");
-  menuExpandIcon.classList.toggle("rotate-180");
+  const screenWidth = window.innerWidth;
+  if (screenWidth < 1000) {
+    const navBar = document.querySelector("[data-nav]");
+    navBar.classList.toggle("hide");
+    const contentArea = document.querySelector("[data-content-area]");
+    contentArea.classList.toggle("hide");
+    const menuExpandIcon = document.querySelector("[data-menu-expand]");
+    menuExpandIcon.classList.toggle("rotate-180");
+  }
 }
+
+window.addEventListener("resize", () => {
+  const screenWidth = window.innerWidth;
+  const navBar = document.querySelector("[data-nav]");
+  if (screenWidth >= 1000) {
+    navBar.classList.remove("hide");
+  }
+});
 
 function toggleFilters() {
   const filters = document.querySelector("[data-filters]");
