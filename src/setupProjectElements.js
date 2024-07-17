@@ -2,8 +2,6 @@ import createElement from "./createElement.js";
 import { projectList } from "./index.js";
 import { renderProjectTasks, setupProjectFilterList } from "./render.js";
 
-const projectsUl = document.querySelector("[data-projects-list]");
-
 function setupProjectElements(project) {
   const id = projectList.length;
   //CREATE ELEMENTS
@@ -17,7 +15,6 @@ function setupProjectElements(project) {
   projectListItem.append(projectButton, projectTaskNrSpan);
   projectTaskNrSpan.appendChild(projectSpanH4);
   projectList.push(projectListItem);
-  // projectsUl.appendChild(projectListItem);
 
   //Add event listener to the respective project filter button
   projectButton.addEventListener("click", (event) => {
