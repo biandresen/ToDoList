@@ -1,6 +1,7 @@
 //IMPORTS
 import createElement from "./createElement.js";
 import { taskList } from "./index.js";
+import { saveData } from "./localStorage.js";
 import {
   toggleTaskInfo,
   editTask,
@@ -21,6 +22,7 @@ function setupTaskElements(task) {
   //CREATE ELEMENTS
   const taskListItem = createElement("li", "task-list-item");
   taskListItem.setAttribute("id", id);
+  taskListItem.setAttribute("checked", task.checked);
   const divTaskHeader = createElement("div", "task-header");
   const divTaskPriorityColor = createElement("div", "task-priority-color");
   const divTaskField = createElement("div", "task-field");
@@ -138,8 +140,16 @@ function setupTaskElements(task) {
     deleteTask(event);
   });
   divTaskField.addEventListener("click", () => {
+    if (taskListItem.getAttribute("checked") == "false")
+      taskListItem.setAttribute("checked", "true");
+    else taskListItem.setAttribute("checked", "false");
     handleTaskCheck(iconChecked, iconUnchecked, divTaskHeader, taskText);
+    saveData();
   });
+  if (task.checked == "true") {
+    taskListItem.setAttribute("checked", "true");
+    handleTaskCheck(iconChecked, iconUnchecked, divTaskHeader, taskText);
+  }
 }
 
 export default setupTaskElements;

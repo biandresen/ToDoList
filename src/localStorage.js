@@ -43,6 +43,12 @@ function saveData() {
     );
   });
   localStorage.setItem("taskColors", JSON.stringify(taskColors));
+
+  const taskChecks = [];
+  taskUnorderedList.querySelectorAll("li").forEach((item) => {
+    taskChecks.push(item.getAttribute("checked"));
+  });
+  localStorage.setItem("taskChecks", JSON.stringify(taskChecks));
 }
 
 function loadData() {
@@ -70,6 +76,10 @@ function loadData() {
     getColors: function () {
       const taskColors = JSON.parse(localStorage.getItem("taskColors"));
       return taskColors;
+    },
+    getChecks: function () {
+      const taskChecks = JSON.parse(localStorage.getItem("taskChecks"));
+      return taskChecks;
     },
   };
 }

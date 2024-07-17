@@ -43,16 +43,17 @@ function handleTaskSubmission(event) {
   taskForm.reset();
 }
 
-function createTask(num) {
+function createTask(taskID) {
   let task;
   if (loadFromStorage[0] === "true") {
     task = new Task(
-      loadData().getTitles()[num],
-      loadData().getNotes()[num],
-      loadData().getProjects()[num],
-      loadData().getDates()[num],
-      loadData().getPriorities()[num],
-      loadData().getColors()[num]
+      loadData().getTitles()[taskID],
+      loadData().getNotes()[taskID],
+      loadData().getProjects()[taskID],
+      loadData().getDates()[taskID],
+      loadData().getPriorities()[taskID],
+      loadData().getColors()[taskID],
+      loadData().getChecks()[taskID]
     );
   } else {
     const priorityInput = document

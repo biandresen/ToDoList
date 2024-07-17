@@ -1,4 +1,4 @@
-function Task(title, note, project, date, priority, color, id, checked = false) {
+function Task(title, note, project, date, priority, color, checked = "false", id) {
   (this.title = title || "Task"),
     (this.note = note || "..."),
     (this.project = project || "Project"),

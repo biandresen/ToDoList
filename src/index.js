@@ -44,14 +44,11 @@ export const taskUnorderedList = document.querySelector("[data-task-list]");
 document.addEventListener("DOMContentLoaded", () => {
   loadTheme();
   if (loadData().getTitles().length >= 1) {
-    const num = loadData().getTitles().length;
-    console.log(num);
+    const taskAmount = loadData().getTitles().length;
     loadFromStorage[0] = "true";
-    for (let i = 0; i < num; i++) {
-      console.log(i);
+    for (let i = 0; i < taskAmount; i++) {
       const task = createTask(i);
       setupTaskElements(task);
-      console.log(task);
       pushProjectToList(task.project);
       renderRespectiveFilterList();
       render();
